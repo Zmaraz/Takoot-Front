@@ -1,7 +1,8 @@
 version: 0.1
 environment_variables:
     plaintext:
-        S3_BUCKET: "Takoot_Front_S3"
+        S3_BUCKET: "takoot-front-s3"
+        BUILD_ENV: "prod"
 phases:
     install:
         commands:
@@ -11,12 +12,13 @@ phases:
     build:
         commands:
             - echo Build started on `date`
-            - ng build
+            - ng build --prod
     post_build:
          commands:
-            - aws s3 cp dist s3://${S3_BUCKET} --recursive
+            - aws s3 sync --delete dist s3://ng-example-bucket
             - echo Build completed on `date`
 artifacts:
     files:
         - '**/*'
-    base-directory: 'dist*' 
+    base-directory: 'dist*'
+    discard-paths: yes
