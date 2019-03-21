@@ -13,10 +13,6 @@ phases:
         commands:
             - echo Build started on `date`
             - ng build --prod
-    post_build:
-         commands:
-            - aws s3 sync --delete dist s3://takoot-front-bucket
-            - echo Build completed on `date`
 artifacts:
     files:
         - '**/*'
