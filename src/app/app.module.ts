@@ -15,7 +15,8 @@ import { QuizComponent } from './quiz/quiz.component';
 const ROUTES = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'games', component: GamesComponent }
+  { path: 'games', component: GamesComponent },
+  { path: 'quiz', component: QuizComponent}
 ];
 
 @NgModule({
