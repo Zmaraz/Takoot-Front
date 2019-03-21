@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { GamesComponent } from './games/games.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const ROUTES = [
   { path: 'login', component: LoginComponent },
@@ -22,7 +24,9 @@ const ROUTES = [
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    GamesComponent
+    GamesComponent,
+    QuestionsComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
