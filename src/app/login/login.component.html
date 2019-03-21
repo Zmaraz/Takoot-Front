@@ -8,7 +8,7 @@
   <label for="password-cred" class="sr-only">Password</label>
   <input #password type="password" class="form-control" placeholder="Password" required>
   
-  <button class="btn btn-lg btn-primary btn-block" (click)="login(username.value, password.value)">Log in</button>
+  <button id = "login-btn" class="btn btn-lg btn-primary btn-block" (click)="login(username.value, password.value)">Log in</button>
   <br>
   <div *ngIf="credentialsInvalid" class="alert alert-danger text-center" id="alert-msg" role="alert">
       Invalid Credentials!
