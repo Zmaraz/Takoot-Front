@@ -1,4 +1,8 @@
 .navbar-brand {
-    color:white;
+    color:black;
+}
+
+#navbar-main {
+    background-color: hotpink;
 }
 
