@@ -44,11 +44,13 @@ export class AuthService {
     
     // posting/sending an HttpResponse back with the endpoint, and credentials
 
+    // empty strings represent the jwt and user
+
     // MAKE NOTE, AUTH REPRESENTS THE END POINT... CHECK WITH BACKEND
     this.http.post(env.API_URL + 'auth', credentialsJson, {observe: 'response'})
       .pipe(map(resp => {
-        localStorage.setItem('rbs-jwt', resp.headers.get('Authorization'));
-        localStorage.setItem('rbs-user', JSON.stringify(resp.body));
+        localStorage.setItem('', resp.headers.get('Authorization'));
+        localStorage.setItem('', JSON.stringify(resp.body));
         this.isAuthenticated = true;
       })).subscribe();
   }
@@ -56,10 +58,10 @@ export class AuthService {
 
   // logout method will remove the JWT's from the associated user in local storage
   logout() {
-    if(localStorage.getItem('rbs-user') || localStorage.getItem('rbs-jwt')) {
+    if(localStorage.getItem('') || localStorage.getItem('')) {
       console.log('Logging out current user');
-      localStorage.removeItem('rbs-jwt');
-      localStorage.removeItem('rbs-user');
+      localStorage.removeItem('');
+      localStorage.removeItem('');
     }
     this.isAuthenticated = false;
   }
