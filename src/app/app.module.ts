@@ -12,11 +12,13 @@ import { RegisterComponent } from './register/register.component';
 import { GamesComponent } from './games/games.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuizComponent } from './quiz/quiz.component';
-
-
-import { AuthService } from './auth.service'
-import { TokenInterceptor } from './token.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { AuthService } from './auth.service';
+import { DataService } from './data.service';
+
+import { TokenInterceptor } from './token.interceptor';
+import { LandingComponent } from './landing/landing.component';
 
 const ROUTES = [
   { path: 'login', component: LoginComponent },
@@ -35,7 +37,8 @@ const ROUTES = [
     GamesComponent,
     QuestionsComponent,
     QuizComponent,
-    DashboardComponent
+    DashboardComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ const ROUTES = [
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
