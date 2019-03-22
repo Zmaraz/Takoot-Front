@@ -6,4 +6,6 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   constructor() { }
+
+  // use this service to connect to the API
 }
