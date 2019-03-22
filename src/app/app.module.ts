@@ -17,6 +17,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { AuthService } from './auth.service'
 import { TokenInterceptor } from './token.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LandingComponent } from './landing/landing.component';
 
 const ROUTES = [
   { path: 'login', component: LoginComponent },
@@ -35,7 +36,8 @@ const ROUTES = [
     GamesComponent,
     QuestionsComponent,
     QuizComponent,
-    DashboardComponent
+    DashboardComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
