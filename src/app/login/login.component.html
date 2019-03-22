@@ -1,5 +1,5 @@
 <!-- Login Component! Yay! Woo! Hooray! -->
-
+<!-- 
 <div class="login-form">
   <h1 class="h3 mb-3 font-weight-normal">Log In</h1>
   <label for="username-cred" class="sr-only">Username</label>
@@ -14,7 +14,30 @@
       Invalid Credentials!
   </div>
   <p class="mt-5 mb-3 text-muted">&copy; Takoot! 2017-2019</p>
-</div>
+</div> -->
+
+
+<div class="col-md-6">
+  <div id="logbox">
+    <form id="login" action="/">
+      <h1>user login</h1>
+      <!-- <input #username type="text" class="form-control" placeholder="Username">
+      <input #password type="password" class="form-control" placeholder="Password"> -->
+      <input #username name="user[username]" type="text" placeholder="enter your username" class="input pass"/> 
+      <input #password name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
+      <input (click)="login(username.value, password.value)" type="submit" value="Let's play some games!" class="inputButton"/>
+      <br>
+      <div *ngIf="credentialsInvalid" class="alert alert-danger text-center" id="alert-msg" role="alert">
+        Invalid Credentials!
+    </div>
+    <br>
+      <div class="text-center">
+          <a routerLink="/register" id="">not registered?</a>
+      </div>
+    </form>
+  </div>
+  </div>
+
 
 
 

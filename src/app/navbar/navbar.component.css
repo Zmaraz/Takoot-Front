@@ -1,8 +1,5 @@
-.navbar-brand {
-    color:black;
+.navbar-brand, #nav-item {
+    color:white;
 }
 
-#navbar-main {
-    background-color: hotpink;
-}
 
