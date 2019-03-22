@@ -16,12 +16,14 @@ import { QuizComponent } from './quiz/quiz.component';
 
 import { AuthService } from './auth.service'
 import { TokenInterceptor } from './token.interceptor';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const ROUTES = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'games', component: GamesComponent },
-  { path: 'quiz', component: QuizComponent}
+  { path: 'quiz', component: QuizComponent},
+  { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const ROUTES = [
     RegisterComponent,
     GamesComponent,
     QuestionsComponent,
-    QuizComponent
+    QuizComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
