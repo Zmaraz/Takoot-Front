@@ -18,6 +18,7 @@ import { AuthService } from './auth.service';
 import { DataService } from './data.service';
 
 import { TokenInterceptor } from './token.interceptor';
+import { LandingComponent } from './landing/landing.component';
 
 const ROUTES = [
   { path: 'login', component: LoginComponent },
@@ -36,7 +37,8 @@ const ROUTES = [
     GamesComponent,
     QuestionsComponent,
     QuizComponent,
-    DashboardComponent
+    DashboardComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
