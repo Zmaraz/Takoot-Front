@@ -22,7 +22,8 @@ const ROUTES = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'games', component: GamesComponent },
-  { path: 'quiz', component: QuizComponent}
+  { path: 'quiz', component: QuizComponent},
+  { path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
