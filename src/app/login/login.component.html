@@ -23,9 +23,9 @@
       <h1>user login</h1>
       <!-- <input #username type="text" class="form-control" placeholder="Username">
       <input #password type="password" class="form-control" placeholder="Password"> -->
-      <input name="user[username]" type="text" placeholder="enter your username" class="input pass"/> 
-      <input name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
-      <input type="submit" value="Let's play some games!" class="inputButton"/>
+      <input #username name="user[username]" type="text" placeholder="enter your username" class="input pass"/> 
+      <input #password name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
+      <input (click)="login(username.value, password.value)" type="submit" value="Let's play some games!" class="inputButton"/>
       <br>
       <div *ngIf="credentialsInvalid" class="alert alert-danger text-center" id="alert-msg" role="alert">
         Invalid Credentials!
