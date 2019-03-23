@@ -14,10 +14,29 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
     this.results.playQuiz().subscribe(results => {
-        this.quizzes = results;
-        console.log(this.quizzes);
-      }
-    );
+      this.quizzes = results;
+    })
   }
+  //tv
+  // playQuiz() {
+  //   this.results.playQuiz().subscribe(results => {
+  //     this.quizzes = results;
+  //   })
+  // }
+
+  // //animals
+  // playQuiz2() {
+  //   this.results.playQuiz2().subscribe(results => {
+  //     this.quizzes = results;
+  //   })
+  // }
+  
+  // //sports
+  // playQuiz3() {
+  //   this.results.playQuiz3().subscribe(results => {
+  //     this.quizzes = results;
+  //   })
+  // }
 
 }
+
