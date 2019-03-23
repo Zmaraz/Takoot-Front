@@ -2,4 +2,12 @@
   Lol, so the quiz should go here. Ideally it will link to the actual quiz that the user clicks....
 </p>
 
-<!-- add a button, "end quiz" that will take the user back to the games-->
+<!-- here, add in your logic for displaying the quiz -->
+
+<h1>Users</h1>
+
+<ul *ngIf="quiz">
+  <li *ngFor="let quiz1 of quiz.data">
+    <!-- <p>{{ user.first_name }} {{ user.last_name }}</p> -->
+  </li>
+</ul>

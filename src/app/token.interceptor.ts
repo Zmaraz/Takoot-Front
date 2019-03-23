@@ -35,7 +35,7 @@ export class TokenInterceptor implements HttpInterceptor {
         console.log('HTTP request intercepted!');
 
         // let token equal the jwt item from storage
-        let token = window.localStorage.getItem('rbs-jwt');
+        let token = window.localStorage.getItem('jwt');
 
         // if the user hits our endpoint and the token is true, attach the JWT
         if (request.url.indexOf(environment.API_URL) >= 0 && token) {
