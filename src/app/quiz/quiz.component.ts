@@ -10,11 +10,11 @@ export class QuizComponent implements OnInit {
 
   quizzes: Object;
 
-  constructor(private data: DataService) { }
+  constructor(private results: DataService) { }
 
   ngOnInit() {
-    this.data.playQuiz().subscribe(data => {
-        this.quizzes = data;
+    this.results.playQuiz().subscribe(results => {
+        this.quizzes = results;
         console.log(this.quizzes);
       }
     );
