@@ -1,5 +1,25 @@
-<p>
-  Lol, so the quiz should go here. Ideally it will link to the actual quiz that the user clicks....
-</p>
+<!-- not working -->
 
-<!-- add a button, "end quiz" that will take the user back to the games-->
+<h1>
+  Quiz
+</h1>
+
+<!-- here, add in your logic for displaying the quiz -->
+
+<!-- use interpolation for the h1 to put the quiz number in-->
+
+<!-- this needs formatting -->
+<!-- <ul *ngFor="let quiz of quizzes.results"> {{ quiz.question }} : {{ quiz.difficulty }} </ul>
+<input type="radio" *ngFor="let answer of quiz.incorrect_answers"> {{ answer }}<br>
+<input type="radio"> {{ quiz.correct_answer }} <br> -->
+
+
+<ul *ngIf="quizzes">
+  <li *ngFor="let quiz of quizzes.results">
+    <p>{{ quiz.question }}}</p>
+    <ul>
+      <li> <input type="radio" name ="wrong"> {{ quiz.correct_answer }} </li>
+      <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name = "wrong"> {{ answer }} </li>
+    </ul>
+  </li>
+</ul>
