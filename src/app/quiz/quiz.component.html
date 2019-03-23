@@ -8,11 +8,7 @@
 
 <!-- use interpolation for the h1 to put the quiz number in-->
 
-<!-- this needs formatting -->
-<!-- <ul *ngFor="let quiz of quizzes.results"> {{ quiz.question }} : {{ quiz.difficulty }} </ul>
-<input type="radio" *ngFor="let answer of quiz.incorrect_answers"> {{ answer }}<br>
-<input type="radio"> {{ quiz.correct_answer }} <br> -->
-
+<!-- this is formatted to display quizzes  -->
 
 <ul *ngIf="quizzes">
   <li *ngFor="let quiz of quizzes.results">
