@@ -13,33 +13,13 @@
 <input type="radio" *ngFor="let answer of quiz.incorrect_answers"> {{ answer }}<br>
 <input type="radio"> {{ quiz.correct_answer }} <br> -->
 
-<!-- <ul> 
-    <li *ngFor="let quiz of quizzes.results">
-      {{ quiz.question }} {{ quiz.difficulty }}
-    </li>
-    <li *ngFor="let answer of quiz.incorrect_answers"> {{ answer }}
-    </li>
-    <li>
-       {{ quiz.correct_answer }}
-    </li>
-</ul> -->
 
 <ul *ngIf="quizzes">
-    <li *ngFor="let quiz of quizzes.results">
-      <p>{{ quiz.question }}}</p>
-      <ul>
-        <li> {{ quiz.correct_answer }} </li>
-        <li *ngFor="let answer of quiz.incorrect_answers"> {{ answer }} </li>
-      </ul>
-      
-    </li>
-    
-    
-      <!-- <li *ngFor="let answer of quiz.incorrect_answers"> 
-       {{ answer }}
-      </li> -->
-      <!-- <li> 
-        {{ quiz.correct_answer }} 
-      </li> -->
-    
-  </ul>
+  <li *ngFor="let quiz of quizzes.results">
+    <p>{{ quiz.question }}}</p>
+    <ul>
+      <li> <input type="radio" name ="wrong"> {{ quiz.correct_answer }} </li>
+      <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name = "wrong"> {{ answer }} </li>
+    </ul>
+  </li>
+</ul>
