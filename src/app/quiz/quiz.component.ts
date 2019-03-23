@@ -8,14 +8,14 @@ import { DataService } from '../data.service';
 })
 export class QuizComponent implements OnInit {
 
-  quiz: Object;
+  quizzes: Object;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.playQuiz().subscribe(data => {
-        this.quiz = data
-        console.log(this.quiz);
+        this.quizzes = data;
+        console.log(this.quizzes);
       }
     );
   }

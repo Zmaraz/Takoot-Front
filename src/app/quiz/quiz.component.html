@@ -1,13 +1,14 @@
-<p>
-  Lol, so the quiz should go here. Ideally it will link to the actual quiz that the user clicks....
-</p>
+<!-- not working -->
+
+<h1>
+  {{ quiz.category }} 
+</h1>
 
 <!-- here, add in your logic for displaying the quiz -->
 
-<h1>Users</h1>
+<!-- use interpolation for the h1 to put the quiz number in-->
 
-<ul *ngIf="quiz">
-  <li *ngFor="let quiz1 of quiz.data">
-    <!-- <p>{{ user.first_name }} {{ user.last_name }}</p> -->
-  </li>
-</ul>
+<!-- this needs formatting -->
+<h5 *ngFor="let quiz of quizzes.results"> {{ quiz.question }} : {{ quiz.difficulty }} </h5>
+<mat-radio-button *ngFor="let answer of quiz.incorrect_answers"> {{ answer }}</mat-radio-button>
+<mat-radio-button> {{ quiz.correct_answer }} </mat-radio-button>

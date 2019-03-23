@@ -8,17 +8,12 @@ import { DataService } from '../data.service';
 })
 export class GamesComponent implements OnInit {
 
-  quiz: Object;
-
+ 
   // this is a constructor in TS, that defines a private variable, data, of type DataService
-  constructor(private data: DataService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.data.playQuiz().subscribe(data => {
-        this.quiz = data
-        console.log(this.quiz);
-      }
-    );
+    
   }
 
   /*
