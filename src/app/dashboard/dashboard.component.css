@@ -92,3 +92,10 @@ ul ul a {
 #content {
     margin-left: 40%;
 }
+
+img {
+    height: 60%;
+    width: 40%;
+    justify-content: center;
+    margin-left:30%;
+}
