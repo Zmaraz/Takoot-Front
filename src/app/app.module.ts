@@ -14,19 +14,21 @@ import { GamesComponent } from './games/games.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LandingComponent } from './landing/landing.component';
 
 import { AuthService } from './auth.service';
 import { DataService } from './data.service';
 
 import { TokenInterceptor } from './token.interceptor';
-import { LandingComponent } from './landing/landing.component';
 
+// after adding a component, add it to the path ROUTES
 const ROUTES = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'games', component: GamesComponent },
   { path: 'quiz', component: QuizComponent},
-  { path: 'dashboard', component: DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'landing', component: LandingComponent}
 ];
 
 @NgModule({

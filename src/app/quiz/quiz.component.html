@@ -1,10 +1,8 @@
-<!-- not working -->
+
 
 <h1>
   Quiz
 </h1>
-
-<!-- here, add in your logic for displaying the quiz -->
 
 <!-- use interpolation for the h1 to put the quiz number in-->
 
@@ -12,7 +10,7 @@
 
 <ul *ngIf="quizzes">
   <li *ngFor="let quiz of quizzes.results">
-    <p>{{ quiz.question }}}</p>
+    <p>{{ quiz.question }}</p>
     <ul>
       <li> <input type="radio" name ="wrong"> {{ quiz.correct_answer }} </li>
       <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name = "wrong"> {{ answer }} </li>
