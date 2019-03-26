@@ -71,7 +71,9 @@ const ROUTES = [
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    }, 
+    DataService,
+    QuizScoreService
   ],
   bootstrap: [AppComponent]
 })
