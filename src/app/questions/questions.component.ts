@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'questions',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
-  constructor() { }
+  question: Object;
+
+  // calling the generateQuestion from the DataService
+  getQuestion = this.results.generateQuestion;
+
+  constructor(private results: DataService) { }
 
   ngOnInit() {
+    // generate a question should work here
   }
+
+  
 
 }
