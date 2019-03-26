@@ -12,7 +12,7 @@
   
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
-        <p>{{ quiz.question |  questionPipe }}</p>
+        <p id="questionId">{{ quiz.question |  questionPipe }}</p>
         <ul>
           <li> <input type="radio" name="wrong"> {{ quiz.correct_answer }} </li>
           <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong"> {{ answer }} </li>

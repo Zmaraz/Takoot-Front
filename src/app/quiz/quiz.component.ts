@@ -6,6 +6,8 @@ import { DataService } from '../data.service';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
+
+// document.getElementById("questionId");
 export class QuizComponent implements OnInit {
 
   quizzes: Object;
