@@ -38,10 +38,10 @@ export class AuthService {
   authenticate(credentials: Credentials) {
     
     this.logout(); // resetting the credentials by loging out the current user, whoever that may be
-    
+    console.log(credentials);
     console.log(`Attempting to login in user: ${credentials.username}`);
     let credentialsJson = JSON.stringify(credentials); //stringify the credentials so make them readable JSON format
-    
+    console.log(credentialsJson);
     // posting/sending an HttpResponse back with the endpoint, and credentials
 
     // empty strings represent the jwt and user
@@ -49,8 +49,8 @@ export class AuthService {
     // MAKE NOTE, AUTH REPRESENTS THE END POINT... CHECK WITH BACKEND
     this.http.post(env.API_URL + 'auth', credentialsJson, {observe: 'response'})
       .pipe(map(resp => {
-        localStorage.setItem('user', resp.headers.get('Authorization'));
-        localStorage.setItem('jwt', JSON.stringify(resp.body));
+        localStorage.setItem('jwt', resp.headers.get('Authorization'));
+        localStorage.setItem('user', JSON.stringify(resp.body));
         this.isAuthenticated = true;
       })).subscribe();
   }
