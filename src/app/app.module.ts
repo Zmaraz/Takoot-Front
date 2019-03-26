@@ -23,6 +23,7 @@ import { DataService } from './data.service';
 import { QuizScoreService } from './quiz-score.service';
 
 import { TokenInterceptor } from './token.interceptor';
+import { QuestionPipePipe } from './question-pipe.pipe';
 
 
 
@@ -51,7 +52,8 @@ const ROUTES = [
     DashboardComponent,
     LandingComponent,
     LeaderboardsComponent,
-    UserQuizzesComponent
+    UserQuizzesComponent,
+    QuestionPipePipe
   ],
   imports: [
     BrowserModule,
