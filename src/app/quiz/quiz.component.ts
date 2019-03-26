@@ -10,14 +10,21 @@ import { QuizScoreService } from '../quiz-score.service';
 export class QuizComponent implements OnInit {
 
   quizzes: Object;
+  scores: Object;
 
-  constructor(private results: DataService) { }
+  // score represents the values that should show when the user clicks the submit button
+  // for now, show the correct answer and the answer that the user chose
+  constructor(private results: DataService, private score: QuizScoreService) { }
 
   ngOnInit() {
     this.results.playQuiz().subscribe(results => {
       this.quizzes = results;
     })
-  }
+  } 
+
+
+  
+  
   //tv
   // playQuiz() {
   //   this.results.playQuiz().subscribe(results => {
