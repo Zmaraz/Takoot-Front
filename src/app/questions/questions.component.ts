@@ -16,10 +16,10 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit() {
     // generate a question should work here
-    this.results.generateQuestion;
+    // this.results.generateQuestion;
   }
 
-  // getQuestion = this.results.generateQuestion;
+  getQuestion = this.results.generateQuestion;
 
 
 }
