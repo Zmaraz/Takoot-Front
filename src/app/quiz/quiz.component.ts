@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { QuizScoreService } from '../quiz-score.service';
 
 @Component({
   selector: 'quiz',
