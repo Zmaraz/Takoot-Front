@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Quote } from '@angular/compiler';
 
 @Pipe({
   name: 'questionPipe'
@@ -15,9 +16,9 @@ export class QuestionPipePipe implements PipeTransform {
       let word = words[i];
       
       if(i > 0 && this.isQuotes(word)) {
-        words[i] = word.toLowerCase();
+        words[i] = word;
       } else {
-        words[i] = this.toTitleCase(word);
+        words[i] = this.toQuestionPipe(word);
       }
     }
 
@@ -25,12 +26,13 @@ export class QuestionPipePipe implements PipeTransform {
   }
 
   private isQuotes(word: string): boolean {
-    let prepositions = ['"', 'the', 'a', 'for', 'over', 'by', 'in', 'with', 'through'];
-    console.log(word + ' ' + prepositions.includes(word.toLowerCase()));
-    return prepositions.includes(word.toLowerCase());
+    let quote = ['&quot;'];
+    console.log(word + ' ' + quote.includes(word));
+    return quote.includes(word.toLowerCase());
   }
 
-  private toTitleCase(word: string): string {
+  private toQuestionPipe(word: string): string {
+    console.log(word);
     return (word.substring(0, 1).toUpperCase() + word.substring(1, word.length).toLowerCase());
   }
 
