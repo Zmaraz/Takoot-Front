@@ -15,8 +15,8 @@
         <p id="questionId">{{ quiz.question |  questionPipe }}</p>
         
         <ul>
-          <li id="correct"> <input type="radio" name="right"> {{ quiz.correct_answer }} </li>
-          <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong"> {{ answer }} </li>
+          <li id="correct"> <input type="radio" name="wrong" value="true" > {{ quiz.correct_answer }} </li>
+          <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
         </ul>
       </li>
     </ul> 
