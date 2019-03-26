@@ -42,7 +42,8 @@ export class TokenInterceptor implements HttpInterceptor {
             console.log('Attaching JWT to Authorization header...')
             request = request.clone({
                 setHeaders: {
-                    Authorization: token
+                    Authorization: token,
+                    'Content-Type':  'application/json',
                 }
             });
             console.log('JWT attached!');

@@ -39,7 +39,7 @@ export class AuthService {
     
     this.logout(); // resetting the credentials by loging out the current user, whoever that may be
     console.log(credentials);
-    console.log(`Attempting to login in user: ${credentials.username}`);
+    console.log(`Attempting to login user: ${credentials.username}`);
     let credentialsJson = JSON.stringify(credentials); //stringify the credentials so make them readable JSON format
     console.log(credentialsJson);
     // posting/sending an HttpResponse back with the endpoint, and credentials
