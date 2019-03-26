@@ -15,12 +15,16 @@ import { QuestionsComponent } from './questions/questions.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingComponent } from './landing/landing.component';
+import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
+import { UserQuizzesComponent } from './user-quizzes/user-quizzes.component';
 
 import { AuthService } from './auth.service';
 import { DataService } from './data.service';
 import { QuizScoreService } from './quiz-score.service';
 
 import { TokenInterceptor } from './token.interceptor';
+
+
 
 // after adding a component, add it to the path ROUTES
 const ROUTES = [
@@ -29,7 +33,10 @@ const ROUTES = [
   { path: 'games', component: GamesComponent },
   { path: 'quiz', component: QuizComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: 'landing', component: LandingComponent}
+  { path: 'landing', component: LandingComponent},
+  { path: 'questions', component: QuestionsComponent},
+  { path: 'leaderboards', component: LeaderboardsComponent},
+  { path: 'user-quizzes', component: UserQuizzesComponent}
 ];
 
 @NgModule({
@@ -42,7 +49,9 @@ const ROUTES = [
     QuestionsComponent,
     QuizComponent,
     DashboardComponent,
-    LandingComponent
+    LandingComponent,
+    LeaderboardsComponent,
+    UserQuizzesComponent
   ],
   imports: [
     BrowserModule,
