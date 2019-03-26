@@ -19,12 +19,10 @@ export class QuestionsComponent implements OnInit {
     // this.results.generateQuestion;
   }
 
-
-  getQuestion() { 
+  getQuestion() {
     this.results.generateQuestion().subscribe(results => {
-    this.question = results;
-    console.log(results);
-  });
-}
-
+      this.question = results;
+      console.log(results);
+    });
+  }
 }

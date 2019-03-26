@@ -11,7 +11,20 @@ ghjbhjcfgfyjhbkhbkjb hhv gthfvhbk hjbvh j,bjvjvbv fghfg vgkkg hj lghf  kgfg  fg 
 </h3>
 <!-- hopefully this button will generate a random question-->
 <input (click)="getQuestion()" type="submit" value="Generate A Question" class="inputButton"/>
-<p> {{ question }} </p>
+<!-- <p *ngIf="question">
+     <li  *ngFor="let quest of question.results"> {{quest}} </li>
+</p> -->
+<ul *ngIf="question">
+    <li  *ngFor="let quest of question.results">
+      <p>{{ quest.question }}</p>
+      
+      <ul>
+        <li id="correct"> <input type="radio" name="wrong" value="true" > {{ quest.correct_answer }} </li>
+        <li *ngFor="let answer of quest.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
+      </ul>
+    </li>
+  </ul> 
+
 
 
 <!-- 
