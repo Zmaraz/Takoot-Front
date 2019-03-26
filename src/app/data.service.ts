@@ -22,7 +22,7 @@ export class DataService {
 
   //animals
   playQuiz2() {
-    console.log('playQuiz2()');
+    console.log('playQuiz2()');j
     return this.http.get('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple');
 
   }
