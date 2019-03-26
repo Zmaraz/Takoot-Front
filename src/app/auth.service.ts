@@ -26,11 +26,13 @@ export class AuthService {
 
   // getter for isAuthenticated
   get isAuthenticated() {
+    console.log("insie of get isAuthenticated()")
     return this._isAuthenticated.getValue();
   }
 
   // setter for isAuthenticated
   set isAuthenticated(value: boolean) {
+    console.log("inside of set isAuthenticated()")
     this._isAuthenticated.next(value);
   }
 
@@ -47,10 +49,13 @@ export class AuthService {
     // empty strings represent the jwt and user
 
     // MAKE NOTE, AUTH REPRESENTS THE END POINT... CHECK WITH BACKEND
+    console.log("line 50 inside of auth.service before we set the jwt to localstorage")
     this.http.post(env.API_URL + 'auth', credentialsJson, {observe: 'response'})
       .pipe(map(resp => {
         localStorage.setItem('jwt', resp.headers.get('Authorization'));
+        console.log(localStorage.getItem('jwt'));
         localStorage.setItem('user', JSON.stringify(resp.body));
+        console.log('user');
         this.isAuthenticated = true;
       })).subscribe();
   }
