@@ -13,16 +13,29 @@
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
         <p id="questionId">{{ quiz.question |  questionPipe }}</p>
+        
         <ul>
-          <li> <input type="radio" name="wrong"> {{ quiz.correct_answer }} </li>
+          <li id="correct"> <input type="radio" name="right"> {{ quiz.correct_answer }} </li>
           <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong"> {{ answer }} </li>
         </ul>
       </li>
-    </ul>
+    </ul> 
+    
+    <!-- <div>
+        <ul *ngIf="quizzes">
+      <li *ngFor="let quiz of quizzes.results">
+        <p> {{ quiz.question }}</p>
+        <ul>
+            <li *ngIf= ""> <button ng-click="count = count + 1"  name="wrong"> {{ quiz.correct_answer }} </li>
+            <li *ngFor="let answer of quiz.incorrect_answers; trackBy: trackByWrong"> <button ng-click="count = count - 1" name="wrong"> {{ answer }} </li>
+        </ul>
+      </li>
+      </ul>
+    </div> -->
 
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <button id="viewScoreBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       View Score!
     </button>
 

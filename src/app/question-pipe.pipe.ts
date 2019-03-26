@@ -13,32 +13,32 @@ export class QuestionPipePipe implements PipeTransform {
       return null;
     }
   
-    for (let i = 0; i < 11; i++)
-      if (value.includes('&quot;')) {
-        this.removeQuotes2(value, i);
-      }
+    // for (let i = 0; i < 11; i++)
+    //   if (value.includes('&quot;')) {
+    //     this.removeQuotes2(value, i);
+    //   }
     
     
-    // let words: string[] = value.split(' ');
+    let words: string[] = value.split(' ');
 
-    // for(let i = 0; i < words.length; i++) {
-    //   let word = words[i];
+    for(let i = 0; i < words.length; i++) {
+      let word = words[i];
       
-    //   // if(i >= 0 && this.isQuotes(word)) {
-    //   //   words[i] = word;
-    //   // } else {
-    //   //   words[i] = this.toQuestionPipe(word);
-    //   // }
+      // if(i >= 0 && this.isQuotes(word)) {
+      //   words[i] = word;
+      // } else {
+      //   words[i] = this.toQuestionPipe(word);
+      // }
 
-    //   if (i >= 0 && word.includes('&quot;')) {
-    //     console.log(word + " includes &quot;")
-    //     this.removeQuotes(word);
-    //     //word.replace('&quot;', '"');
+      if (i >= 0 && word.includes('&quot;')) {
+        console.log(word + " includes &quot;")
+        this.removeQuotes(word);
+        //word.replace('&quot;', '"');
 
-    //   } 
-    // }
+      } 
+    }
 
-    // return words.join(' ');
+    return words.join(' ');
   }
 
   private removeQuotes2(value: string, i: number): string {
