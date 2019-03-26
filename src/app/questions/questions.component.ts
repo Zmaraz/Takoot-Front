@@ -11,7 +11,7 @@ export class QuestionsComponent implements OnInit {
   question: Object;
 
   // calling the generateQuestion from the DataService
-  
+
   constructor(private results: DataService) { }
 
   ngOnInit() {
@@ -19,9 +19,12 @@ export class QuestionsComponent implements OnInit {
     // this.results.generateQuestion;
   }
 
-  getQuestion = this.results.generateQuestion().subscribe(results => {
-    this.question = results;
-    console.log(results);
-  });
-  
+  getQuestion() {
+
+    this.results.generateQuestion().subscribe(results => {
+      this.question = results;
+      console.log(results);
+    });
   }
+
+}
