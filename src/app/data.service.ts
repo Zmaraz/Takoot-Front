@@ -34,4 +34,10 @@ export class DataService {
 
   }
 
+  // generates a random question
+  generateQuestion() {
+    console.log('generateQuestion()');
+    return this.http.get('https://opentdb.com/api.php?amount=1');
+  }
+
 }
