@@ -1,31 +1,16 @@
-<h1>
-
-  This page should allow the user to create a quiz
-
-
-
-</h1>>
-<h3>
-ghjbhjcfgfyjhbkhbkjb hhv gthfvhbk hjbvh j,bjvjvbv fghfg vgkkg hj lghf  kgfg  fg u 
-  skerttt See Wezley's notes on strtuctural and attribute-directies, also data binding
-</h3>
-<!-- hopefully this button will generate a random question-->
-<input (click)="getQuestion()" type="submit" value="Generate A Question" class="inputButton"/>
-<!-- <p *ngIf="question">
-     <li  *ngFor="let quest of question.results"> {{quest}} </li>
-</p> -->
+<h3>Create A Quiz</h3>
+<br />
 <ul *ngIf="question">
-    <li  *ngFor="let quest of question.results">
-      <p>{{ quest.question }}</p>
-      
-      <ul>
-        <li id="correct"> <input type="radio" name="wrong" value="true" > {{ quest.correct_answer }} </li>
-        <li *ngFor="let answer of quest.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
-      </ul>
-    </li>
-  </ul> 
+  <li *ngFor="let quest of question.results">
+    <p>{{ quest.question }}</p>
 
-
+    <ul>
+      <li id="correct"> <input type="radio" name="wrong" value="true"> {{ quest.correct_answer }} </li>
+      <li *ngFor="let answer of quest.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }}
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <!-- 
   have an empty question generator that asks for:
@@ -33,8 +18,187 @@ ghjbhjcfgfyjhbkhbkjb hhv gthfvhbk hjbvh j,bjvjvbv fghfg vgkkg hj lghf  kgfg  fg 
   2. 10 blank questions with 4 answer choices
   3. 
 -->
+<form>
+  <div class="form-group">
+    <label for="quizTitle">Quiz Title</label>
+    <input type="text" class="form-control" id="quizTitle" aria-describedby="quizTitleHelp" placeholder="Enter a title for your quiz">
+  </div>
+  <br>
 
-<!-- 
-  when the user clicks the option to generate a random question, use this API link:
-https://opentdb.com/api.php?amount=1
--->
+
+  <!-- category drop down should be here -->
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select id="category" name="category" class="custom-select">
+      <option selected>Specify a Category</option>
+      <option class="category" id="movies" value="1">Movies</option>
+      <option class="category" id="television" value="2">Television</option>
+      <option class="category" id="animals" value="3">Animals</option>
+      <option class="category" id="olympics" value="4">Olympic Sports</option>
+      <option class="category" id="geology" value="6">Geology</option>
+    </select>
+  </div>
+  <br>
+
+
+  <!-- this will generate a random question -->
+  <input (click)="getQuestion()" type="submit" value="Generate A Question" class="btn btn-primary" />
+  <br>
+  <br>
+
+  <!-- 
+    here, we will add dynamic form fields for adding questions and answers
+  -->
+
+  <div class="form-group">
+    <label for="quest1">Question 1</label>
+    <input type="text" class="form-control" id="quest1" placeholder="Enter the first question">
+  </div>
+  <br>
+
+  <!-- <div class="input-group">
+      <span class="input-group-addon">Text</span>
+      <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+    </div> -->
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <br>
+  <br>
+
+  <div class="form-group">
+    <label for="quest1">Question 2</label>
+    <input type="text" class="form-control" id="quest1" placeholder="Enter the next question">
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <br>
+  <br>
+
+  <div class="form-group">
+    <label for="quest1">Question 3</label>
+    <input type="text" class="form-control" id="quest1" placeholder="Enter the next question">
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <br>
+  <br>
+
+  <div class="form-group">
+    <label for="quest1">Question 4</label>
+    <input type="text" class="form-control" id="quest1" placeholder="Enter the next question">
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <br>
+  <br>
+
+  <div class="form-group">
+    <label for="quest1">Question 5</label>
+    <input type="text" class="form-control" id="quest1" placeholder="Enter the next question">
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <br>
+  <br>
+
+  <button type="submit" class="btn btn-primary">Create a Quiz!</button>
+</form>
