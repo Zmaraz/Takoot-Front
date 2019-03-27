@@ -21,9 +21,9 @@ export class QuizComponent implements OnInit {
     console.log("right answer lit lit lit");
   }
 
-  getScore(results) {
+  getScore() {
     console.log('potato');
-    console.log(results);
+  
   }
   
   // trackByWrong(index, item) {
