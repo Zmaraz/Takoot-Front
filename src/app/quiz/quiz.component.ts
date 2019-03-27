@@ -14,11 +14,16 @@ export class QuizComponent implements OnInit {
 
   constructor(private results: DataService) { 
     //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
-    console.log(this.results); 
+    console.log("this is inside the constructor method in quiz component  " + this.results); 
+  }
+
+  correctAnswer() {
+    console.log("right answer lit lit lit");
   }
 
   getScore(results) {
     console.log('potato');
+    console.log(results);
   }
   
   // trackByWrong(index, item) {
