@@ -18,7 +18,7 @@ export class DataService {
 
     // this should create 10 questions from TV category with multiple choice answers API
     // return this.http.get('https://reqres.in/api/users');
-    return this.http.get('https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple?callback=foo');
+    return this.http.get('https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple');
   }
 
   //animals
