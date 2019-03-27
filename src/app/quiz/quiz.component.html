@@ -7,6 +7,9 @@
 
 <!-- this is formatted to display quizzes  -->
 
+<!-- <div [ngSwitch]="view"> -->
+
+
 
 
   
@@ -15,7 +18,8 @@
         <p id="questionId">{{ quiz.question |  questionPipe }}</p>
         
         <ul>
-          <li id="correct"> <input type="radio" name="wrong" value="true" > {{ quiz.correct_answer }} </li>
+          <!-- <li id="correct"> <input (click)="correctAnswer()" type="input" name="wrong" value="true" > {{ quiz.correct_answer }} </li> -->
+          <li id="correct"> <input (click)="correctAnswer()" type="button" name="wrong" > {{ quiz.correct_answer }} </li>
           <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
         </ul>
       </li>
@@ -35,9 +39,15 @@
 
 
     <!-- Button trigger modal -->
-    <button (click)="gi" id="viewScoreBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+
+    <input (click)="getScore()" id="viewScoreBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"/>
       View Score!
-    </button>
+  <!-- </input> -->
+
+
+
+
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -59,4 +69,6 @@
           </div>
         </div>
       </div>
+
    
+<!-- </div> -->
