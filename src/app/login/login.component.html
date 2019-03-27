@@ -25,7 +25,7 @@
       <input #password type="password" class="form-control" placeholder="Password"> -->
       <input #username name="user[username]" type="text" placeholder="enter your username" class="input pass"/> 
       <input #password name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
-      <input (click)="login(username.value, password.value)" type="submit" value="Let's play some games!" class="inputButton"/>
+      <input (click)="login(username.value, password.value)" type="submit" value="Let's play some games!" class="inputButton" routerLink="/dashboard"/>
       <br>
       <div *ngIf="credentialsInvalid" class="alert alert-danger text-center" id="alert-msg" role="alert">
         Invalid Credentials!
