@@ -23,13 +23,10 @@ export class RegisterService {
     console.log(userJson);
 
     this.http.post(env.API_URL + 'users', userJson, {observe: 'response'})
-    .pipe(map(resp => {
+    .subscribe();
       
 
-    }))
-
   }
-
 
 
 }
