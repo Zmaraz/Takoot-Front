@@ -2,19 +2,26 @@
   Quiz
 </h1>
 
-  
+  <div>
+
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
         <p id="questionId">{{ quiz.question |  questionPipe }}</p>
         
         <ul>
           <!-- <li id="correct"> <input (click)="correctAnswer()" type="input" name="wrong" value="true" > {{ quiz.correct_answer }} </li> -->
-          <li id="correct"> <input (click)="correctAnswer()" type="button" name="wrong" > {{ quiz.correct_answer }} </li>
-          <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
+          <!-- <li id="correct"> <button (click)="correctAnswer()" name="wrong" value="This one!"> {{ quiz.correct_answer }} </li> -->
+          <button id="correctBtn"  (click)="correctAnswer()" name="wrong"  > {{ quiz.correct_answer }} </button>
+          
+          <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <button (click)="wrongAnswer()" name="wrong" value="This one!"> {{ answer }} </li> -->
+          <button id="wrongBtn" *ngFor="let answer of quiz.incorrect_answers" (click)="wrongAnswer()" name="wrong" value="This one!"  >  {{ answer }} </button>
+          <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li> -->
+          
         </ul>
       </li>
     </ul> 
-    
+
+  </div> 
 
     <!-- Button trigger modal -->
 
@@ -31,8 +38,9 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              the user scores will go here.
+            <div id="userScore" class="modal-body">
+              <p id="score">  0/0 </p>
+              the user scores will go here. {{scoreNum}}
             </div>
             <div class="modal-footer">
               <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

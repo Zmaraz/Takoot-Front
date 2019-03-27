@@ -10,18 +10,30 @@ import { DataService } from '../data.service';
 // document.getElementById("questionId");
 export class QuizComponent implements OnInit {
 
+public scoreNum = 0;
+
   quizzes: Object;
 
-  constructor(private results: DataService) { 
+  constructor(private results: DataService) {
     //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
+   
     console.log("this is inside the constructor method in quiz component  " + this.results); 
   }
 
   correctAnswer() {
-    console.log("right answer lit lit lit");
+    document.getElementById('score').innerText += " Right! ";
+    console.log("right answer! lit! lit! lit!");
+    this.scoreNum++;
   }
 
+  wrongAnswer() {
+    document.getElementById('score').innerText = " Wrong! ";
+    console.log("WRONGGG!!! silly..")
+  }
+  
   getScore() {
+    
+
     console.log('potato');
   
   }
@@ -34,6 +46,8 @@ export class QuizComponent implements OnInit {
   
   ngOnInit() {
     this.results.playQuiz().subscribe(results => {
+      var x = 0;
+      console.log("x value in quizcomponent.ts : " + x);
       this.quizzes = results;
       console.log(results); 
     });
