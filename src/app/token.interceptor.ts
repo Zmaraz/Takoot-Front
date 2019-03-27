@@ -33,16 +33,18 @@ export class TokenInterceptor implements HttpInterceptor {
     // and (2) the next interceptor in the chain
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         console.log('HTTP request intercepted!');
-
+        console.log(request);
         // let token equal the jwt item from storage
         let token = window.localStorage.getItem('jwt');
-
+        console.log(token);
         // if the user hits our endpoint and the token is true, attach the JWT
-        if (request.url.indexOf(environment.API_URL) >= 0 && token) {
+        if (request.url.indexOf(environment.API_URL) >= 0) {
             console.log('Attaching JWT to Authorization header...')
             request = request.clone({
                 setHeaders: {
-                    Authorization: token
+                    Authorization: token,
+                    'Content-Type':  'application/json',
+                    'Accept': 'application/json'
                 }
             });
             console.log('JWT attached!');
