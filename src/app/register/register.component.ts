@@ -18,8 +18,13 @@ export class RegisterComponent implements OnInit {
     console.log('RegisterComponent constructed!');
   }
 
-  register(firstname: string, lastname: string, username: string, password: string, email: string) {
-
+  register(firstname, lastname, username, password, email) {
+    firstname = document.getElementById('fn').value;
+    lastname = document.getElementById('ln').value;
+    username = document.getElementById('username').value;
+    password = document.getElementById('password').value;
+    email = document.getElementById('email').value;
+    // use data binding [()] to retrieve the User id info from the form in the register html
     this.user = new User (firstname, lastname, username, password, email);
     console.log(this.user);
 
