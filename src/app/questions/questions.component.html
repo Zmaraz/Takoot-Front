@@ -1,3 +1,40 @@
-<p>
-  questions works!
-</p>
+<h1>
+
+  This page should allow the user to create a quiz
+
+
+
+</h1>>
+<h3>
+ghjbhjcfgfyjhbkhbkjb hhv gthfvhbk hjbvh j,bjvjvbv fghfg vgkkg hj lghf  kgfg  fg u 
+  skerttt See Wezley's notes on strtuctural and attribute-directies, also data binding
+</h3>
+<!-- hopefully this button will generate a random question-->
+<input (click)="getQuestion()" type="submit" value="Generate A Question" class="inputButton"/>
+<!-- <p *ngIf="question">
+     <li  *ngFor="let quest of question.results"> {{quest}} </li>
+</p> -->
+<ul *ngIf="question">
+    <li  *ngFor="let quest of question.results">
+      <p>{{ quest.question }}</p>
+      
+      <ul>
+        <li id="correct"> <input type="radio" name="wrong" value="true" > {{ quest.correct_answer }} </li>
+        <li *ngFor="let answer of quest.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
+      </ul>
+    </li>
+  </ul> 
+
+
+
+<!-- 
+  have an empty question generator that asks for:
+  1. title of quiz
+  2. 10 blank questions with 4 answer choices
+  3. 
+-->
+
+<!-- 
+  when the user clicks the option to generate a random question, use this API link:
+https://opentdb.com/api.php?amount=1
+-->

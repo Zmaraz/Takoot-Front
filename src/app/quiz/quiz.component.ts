@@ -6,16 +6,32 @@ import { DataService } from '../data.service';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
+
+// document.getElementById("questionId");
 export class QuizComponent implements OnInit {
 
   quizzes: Object;
 
-  constructor(private results: DataService) { }
+  constructor(private results: DataService) { 
+    //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
+    console.log(this.results); 
+  }
 
+  getScore(results) {
+    console.log('potato');
+  }
+  
+  // trackByWrong(index, item) {
+  // let doc = document.getElementById("questionId");
+  //   console.log("in trackbyWrong() " + doc);
+  //   return item.id;
+  // }
+  
   ngOnInit() {
     this.results.playQuiz().subscribe(results => {
       this.quizzes = results;
-    })
+      console.log(results); 
+    });
   }
   //tv
   // playQuiz() {

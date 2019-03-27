@@ -1,21 +1,63 @@
-<!-- not working -->
-
 <h1>
   Quiz
 </h1>
 
-<!-- here, add in your logic for displaying the quiz -->
-
 <!-- use interpolation for the h1 to put the quiz number in-->
 
 <!-- this is formatted to display quizzes  -->
+<div [ngSwitch]="view">
 
-<ul *ngIf="quizzes">
-  <li *ngFor="let quiz of quizzes.results">
-    <p>{{ quiz.question }}}</p>
-    <ul>
-      <li> <input type="radio" name ="wrong"> {{ quiz.correct_answer }} </li>
-      <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name = "wrong"> {{ answer }} </li>
-    </ul>
-  </li>
-</ul>
+
+
+  
+    <ul *ngIf="quizzes">
+      <li  *ngFor="let quiz of quizzes.results">
+        <p id="questionId">{{ quiz.question |  questionPipe }}</p>
+        
+        <ul>
+          <li id="correct"> <input type="radio" name="wrong" value="true" > {{ quiz.correct_answer }} </li>
+          <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
+        </ul>
+      </li>
+    </ul> 
+    
+    <!-- <div>
+        <ul *ngIf="quizzes">
+      <li *ngFor="let quiz of quizzes.results">
+        <p> {{ quiz.question }}</p>
+        <ul>
+            <li *ngIf= ""> <button ng-click="count = count + 1"  name="wrong"> {{ quiz.correct_answer }} </li>
+            <li *ngFor="let answer of quiz.incorrect_answers; trackBy: trackByWrong"> <button ng-click="count = count - 1" name="wrong"> {{ answer }} </li>
+        </ul>
+      </li>
+      </ul>
+    </div> -->
+
+
+    <!-- Button trigger modal -->
+    <!-- <input (click)="gi" id="viewScoreBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      View Score!
+  </input> -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">User Scores</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              the user scores will go here.
+            </div>
+            <div class="modal-footer">
+              <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <!-- Save score should be functional -->
+              <button routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Save Scores</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+</div>

@@ -26,11 +26,13 @@ export class AuthService {
 
   // getter for isAuthenticated
   get isAuthenticated() {
+    console.log("insie of get isAuthenticated()")
     return this._isAuthenticated.getValue();
   }
 
   // setter for isAuthenticated
   set isAuthenticated(value: boolean) {
+    console.log("inside of set isAuthenticated()")
     this._isAuthenticated.next(value);
   }
 
@@ -38,19 +40,22 @@ export class AuthService {
   authenticate(credentials: Credentials) {
     
     this.logout(); // resetting the credentials by loging out the current user, whoever that may be
-    
-    console.log(`Attempting to login in user: ${credentials.username}`);
+    console.log(credentials);
+    console.log(`Attempting to login user: ${credentials.username}`);
     let credentialsJson = JSON.stringify(credentials); //stringify the credentials so make them readable JSON format
-    
+    console.log(credentialsJson);
     // posting/sending an HttpResponse back with the endpoint, and credentials
 
     // empty strings represent the jwt and user
 
     // MAKE NOTE, AUTH REPRESENTS THE END POINT... CHECK WITH BACKEND
+    console.log("line 50 inside of auth.service before we set the jwt to localstorage")
     this.http.post(env.API_URL + 'auth', credentialsJson, {observe: 'response'})
       .pipe(map(resp => {
-        localStorage.setItem('user', resp.headers.get('Authorization'));
-        localStorage.setItem('jwt', JSON.stringify(resp.body));
+        localStorage.setItem('jwt', resp.headers.get('Authorization'));
+        console.log(localStorage.getItem('jwt'));
+        localStorage.setItem('user', JSON.stringify(resp.body));
+        console.log('user');
         this.isAuthenticated = true;
       })).subscribe();
   }
