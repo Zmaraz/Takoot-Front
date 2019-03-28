@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { HttpClient } from '@angular/common/http';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'games',
@@ -8,13 +10,16 @@ import { DataService } from '../data.service';
 })
 export class GamesComponent implements OnInit {
 
+  theGames: Object;
  
   // this is a constructor in TS, that defines a private variable, data, of type DataService
-  constructor() { }
+  constructor(private http:HttpClient, private games: GamesService) { }
 
   ngOnInit() {
     
   }
+
+  
 
   /*
   
@@ -23,7 +28,14 @@ export class GamesComponent implements OnInit {
     3. Then I call the method with this.data.firstClick() when the user clicks on the button.
 
   */
-
+ 
+ // here, call this method in ngOnInit and parse through it the same way you get questions from the API
+ getAllQuizzes() {
+  this.games.getQuizzes().subscribe(results => {
+    this.theGames = results;
+    console.log(results);
+  });
+}
 
  
 
