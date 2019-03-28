@@ -35,15 +35,15 @@ export class QuestionsComponent implements OnInit {
   }
 
   // creates a Quiz
-  createQuiz(title, dateCreated, dateLastUpdated, categoryId, difficultyId, defaultId) {
+  createQuiz() {
 
     // this part of the function, sends the Quiz
-    title = (<HTMLInputElement>document.getElementById('quizTitle')).value;
-    dateCreated = new Date();
-    dateLastUpdated = dateCreated;
-    categoryId = (<HTMLInputElement>document.getElementById('category')).value;
-    difficultyId = (<HTMLInputElement>document.getElementById('difficulty')).value;
-    defaultId = 2;
+    let title = (<HTMLInputElement>document.getElementById('quizTitle')).value;
+    let dateCreated = String(new Date());
+    let dateLastUpdated = dateCreated;
+    let categoryId = Number((<HTMLInputElement>document.getElementById('category')).value);
+    let difficultyId = Number((<HTMLInputElement>document.getElementById('difficulty')).value);
+    let defaultId = 2;
 
     this.theQuiz = new Quiz (title, dateCreated, dateLastUpdated, categoryId, difficultyId, defaultId);
     console.log(this.theQuiz);
@@ -53,33 +53,33 @@ export class QuestionsComponent implements OnInit {
   }
 
   // creates a Question
-  createQuestion1(quest) {
-    quest = (<HTMLInputElement>document.getElementById('quest1')).value;
+  createQuestion1() {
+    let quest = (<HTMLInputElement>document.getElementById('quest1')).value;
     this.theQuestion = new Question(quest);
     console.log(this.theQuestion);
     this.questions.createQuest(this.theQuestion);
   }
 
-  createQuestion2(quest) {
-    quest = (<HTMLInputElement>document.getElementById('quest2')).value;
+  createQuestion2() {
+    let quest = (<HTMLInputElement>document.getElementById('quest2')).value;
     this.theQuestion = new Question (quest);
     console.log(this.theQuestion);
     this.questions.createQuest(this.theQuestion);
   }
-  createQuestion3(quest) {
-    quest = (<HTMLInputElement>document.getElementById('quest3')).value;
+  createQuestion3() {
+    let quest = (<HTMLInputElement>document.getElementById('quest3')).value;
     this.theQuestion = new Question (quest);
     console.log(this.theQuestion);
     this.questions.createQuest(this.theQuestion);
   }
-  createQuestion4(quest) {
-    quest = (<HTMLInputElement>document.getElementById('quest4')).value;
+  createQuestion4() {
+    let quest = (<HTMLInputElement>document.getElementById('quest4')).value;
     this.theQuestion = new Question (quest);
     console.log(this.theQuestion);
     this.questions.createQuest(this.theQuestion);
   }
-  createQuestion5(quest) {
-    quest = (<HTMLInputElement>document.getElementById('quest5')).value;
+  createQuestion5() {
+    let quest = (<HTMLInputElement>document.getElementById('quest5')).value;
     this.theQuestion = new Question (quest);
     console.log(this.theQuestion);
     this.questions.createQuest(this.theQuestion);
@@ -88,58 +88,58 @@ export class QuestionsComponent implements OnInit {
 
 
   //create answers for question 1
-  createAnswer1(correctAns) {
-    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-1')).value;
+  createAnswer1() {
+    let correctAns = (<HTMLInputElement>document.getElementById('correct-quest-1')).value;
     this.theAnswer = new Answer (correctAns, 0);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer2(wrongAns1) {
-    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-1')).value;
+  createAnswer2() {
+    let wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-1')).value;
     this.theAnswer = new Answer (wrongAns1, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer3(wrongAns2) {
-    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-1')).value;
+  createAnswer3() {
+    let wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-1')).value;
     this.theAnswer = new Answer (wrongAns2, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer4(wrongAns3) {
-    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-1')).value;
+  createAnswer4() {
+    let wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-1')).value;
     this.theAnswer = new Answer (wrongAns3, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
   //create answers for question 2
-  createAnswer5(correctAns) {
-    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-2')).value;
+  createAnswer5() {
+    let correctAns = (<HTMLInputElement>document.getElementById('correct-quest-2')).value;
     this.theAnswer = new Answer (correctAns, 0);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer6(wrongAns1) {
-    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-2')).value;
+  createAnswer6() {
+    let wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-2')).value;
     this.theAnswer = new Answer (wrongAns1, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer7(wrongAns2) {
-    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-2')).value;
+  createAnswer7() {
+    let wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-2')).value;
     this.theAnswer = new Answer (wrongAns2, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer8(wrongAns3) {
-    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-2')).value;
+  createAnswer8() {
+    let wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-2')).value;
     this.theAnswer = new Answer (wrongAns3, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
@@ -147,87 +147,87 @@ export class QuestionsComponent implements OnInit {
 
 
   //create answers for question 3
-  createAnswer9(correctAns) {
-    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-3')).value;
+  createAnswer9() {
+    let correctAns = (<HTMLInputElement>document.getElementById('correct-quest-3')).value;
     this.theAnswer = new Answer (correctAns, 0);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
   // testing, these don't work
-  createAnswer10(wrongAns1) {
-    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-3')).value;
+  createAnswer10() {
+    let wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-3')).value;
     this.theAnswer = new Answer (wrongAns1, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer11(wrongAns2) {
-    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-3')).value;
+  createAnswer11() {
+    let wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-3')).value;
     this.theAnswer = new Answer (wrongAns2, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer12(wrongAns3) {
-    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-3')).value;
+  createAnswer12() {
+    let wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-3')).value;
     this.theAnswer = new Answer (wrongAns3, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer13(correctAns) {
-    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-4')).value;
+  createAnswer13() {
+    let correctAns = (<HTMLInputElement>document.getElementById('correct-quest-4')).value;
     this.theAnswer = new Answer (correctAns, 0);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer14(wrongAns1) {
-    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-4')).value;
+  createAnswer14() {
+    let wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-4')).value;
     this.theAnswer = new Answer (wrongAns1, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer15(wrongAns2) {
-    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-4')).value;
+  createAnswer15() {
+    let wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-4')).value;
     this.theAnswer = new Answer (wrongAns2, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer16(wrongAns3) {
-    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-4')).value;
+  createAnswer16() {
+    let wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-4')).value;
     this.theAnswer = new Answer (wrongAns3, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
   //question 5 answers
-  createAnswer17(correctAns) {
-    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-5')).value;
+  createAnswer17() {
+    let correctAns = (<HTMLInputElement>document.getElementById('correct-quest-5')).value;
     this.theAnswer = new Answer (correctAns, 0);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer18(wrongAns1) {
-    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-5')).value;
+  createAnswer18() {
+    let wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-5')).value;
     this.theAnswer = new Answer (wrongAns1, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer19(wrongAns2) {
-    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-5')).value;
+  createAnswer19() {
+    let wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-5')).value;
     this.theAnswer = new Answer (wrongAns2, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
   }
 
-  createAnswer20(wrongAns3) {
-    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-5')).value;
+  createAnswer20() {
+    let wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-5')).value;
     this.theAnswer = new Answer (wrongAns3, 1);
     console.log(this.theQuestion);
     this.questions.createAns(this.theAnswer);
