@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 // document.getElementById("questionId");
 export class QuizComponent implements OnInit {
 
-public scoreNum = 0;
+public scoreNum = 10;
 
   quizzes: Object;
 
@@ -21,14 +21,15 @@ public scoreNum = 0;
   }
 
   correctAnswer() {
-    document.getElementById('score').innerText += " Right! ";
+    //document.getElementById('score').innerText += " Right! ";
     console.log("right answer! lit! lit! lit!");
-    this.scoreNum++;
+    
   }
 
   wrongAnswer() {
-    document.getElementById('score').innerText = " Wrong! ";
+    //document.getElementById('score').innerText = " Wrong! ";
     console.log("WRONGGG!!! silly..")
+    this.scoreNum--;
   }
   
   getScore() {
