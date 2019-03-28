@@ -4,6 +4,7 @@
 
   <div>
 
+
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
         <p id="questionId">{{ quiz.question |  questionPipe }}</p>
@@ -50,5 +51,6 @@
           </div>
         </div>
       </div>
+
    
 <!-- </div> -->
