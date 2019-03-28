@@ -17,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingComponent } from './landing/landing.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { UserQuizzesComponent } from './user-quizzes/user-quizzes.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { QuestionPipePipe } from './question-pipe.pipe';
 
@@ -29,10 +30,12 @@ import { TokenInterceptor } from './token.interceptor';
 
 
 
+
 // after adding a component, add it to the path ROUTES
 const ROUTES = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'games', component: GamesComponent },
   { path: 'quiz', component: QuizComponent},
   { path: 'dashboard', component: DashboardComponent},
@@ -55,7 +58,8 @@ const ROUTES = [
     LandingComponent,
     LeaderboardsComponent,
     UserQuizzesComponent,
-    QuestionPipePipe
+    QuestionPipePipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
