@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-user-quizzes',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserQuizzesComponent implements OnInit {
 
-  constructor() { }
+  userQuizzes: Object;
+
+  constructor(private otherResults: GamesService) { }
 
   ngOnInit() {
+    this.otherResults.getQuizzes().subscribe(otherResults => {
+      this.userQuizzes = otherResults;
+      console.log(otherResults);
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizScoreService } from '../quiz-score.service';
 
 @Component({
   selector: 'app-leaderboards',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardsComponent implements OnInit {
 
-  constructor() { }
+  score: Object;
+  
+  constructor(private scores: QuizScoreService) { }
 
   ngOnInit() {
+    console.log('in leaderboards()')
+    console.log(this.scores);
   }
 
+  getAllScores(){
+    console.log('in getAllScores()')
+    this.scores.getScore().subscribe(scores =>{
+      this.score= scores;
+      console.log(this.score);
+    })
+  }
 }
