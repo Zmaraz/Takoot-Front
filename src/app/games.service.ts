@@ -15,4 +15,14 @@ export class GamesService {
     console.log('inside of getAllQuizzes');
     return this.http.get(env.API_URL + 'quiz');
   }
+
+  getQuestions() {
+    console.log('inside of getAllQuestions');
+    return this.http.get(env.API_URL + 'question');
+  }
+
+  getAnswers() {
+    console.log('inside of getAllAnswers');
+    return this.http.get(env.API_URL + 'answer');
+  }
 }

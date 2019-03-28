@@ -36,9 +36,16 @@ export class DataService {
   }
 
   // generates a random question
+  // here, we need to get the categpry from the category input field on create a quiz
+  // use backtics to insert that value into the API call
   generateQuestion() {
     console.log('generateQuestion()');
-    return this.http.get('https://opentdb.com/api.php?amount=1');
+    let category = (<HTMLInputElement>document.getElementById('category')).value;
+    let difficulty = (<HTMLInputElement>document.getElementById('difficulty')).value;
+    if(category == '1'){
+      return this.http.get('https://opentdb.com/api.php?amount=1');
+    }
+    
   }
 
 }
