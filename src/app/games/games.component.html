@@ -48,9 +48,21 @@
   </div>
 </div>
 
-<!-- this button should be a -->
-<button (click)="getAllQuizzes()" type="submit" class="btn btn-primary">Get Quizzess</button>
-  <br>
-
-  
+<!-- this button should be a dynamic modal
+  use a ngFor to only display this modal if a user quiz exists-->
+  <!-- <div class="card text-white bg-dark mb-3"> -->
+      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+      <!-- <div class="card-body">
+        <h5 class="card-title">User Quiz</h5>
+        <p class="card-text"> Test</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <a routerLink="/user-quizzes" class="btn" style="background-color:blueviolet; color:white">Play User Created Game</a>
+      </div> 
+      <br>
+</div>  -->
+<br>
+<br>
+<div class="text-center">
+    <h5><a click="getAllQuizzes()"routerLink="/user-quizzes" id="">*not interested? Play some custom quizzes here!*</a></h5>
+</div>
 </div> <!-- div for the jumbotron-->

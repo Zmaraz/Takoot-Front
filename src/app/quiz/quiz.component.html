@@ -27,9 +27,20 @@
 
 
   <!-- this is where you will store the user created quizzes-->
-  <div id = "userContainer">
+  <!-- <div id = "userContainer">
+    <ul *ngIf="userQuizzes">
+      <li *ngFor="let userQuiz of userQuizzes.otherResults">
+        <p id="userQuestionId">{{ userQuiz.question }}</p>
+      </li>
+      
+    </ul>
 
-  </div>
+     <tr *ngFor="let user of users">
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+</tr>-->
+
+  <!-- </div>  -->
 
 
     <!-- Button trigger modal -->
@@ -54,7 +65,7 @@
             <div class="modal-footer">
               <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <!-- Save score should be functional -->
-              <button routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Save Scores</button>
+              <button (click)="saveScore()" routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Save Scores</button>
             </div>
           </div>
         </div>

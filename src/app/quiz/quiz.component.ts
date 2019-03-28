@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+<<<<<<< HEAD
+import { GamesService } from '../games.service';
+=======
+import { Score } from '../models/score';
+>>>>>>> 5f31a287ea5d32ee91caa5e9e2a878044dfe4d1c
 
 @Component({
   selector: 'quiz',
@@ -13,8 +18,13 @@ export class QuizComponent implements OnInit {
 public scoreNum = 5;
 
   quizzes: Object;
+<<<<<<< HEAD
+  userQuizzes: Object;
+=======
+  score: Score;
+>>>>>>> 5f31a287ea5d32ee91caa5e9e2a878044dfe4d1c
 
-  constructor(private results: DataService) {
+  constructor(private results: DataService, private otherResults: GamesService) {
     //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
    
     console.log("this is inside the constructor method in quiz component  " + this.results); 
@@ -33,10 +43,15 @@ public scoreNum = 5;
   }
   
   getScore() {
-    
-
     console.log('potato');
   
+  }
+
+  saveScore(){
+    console.log(this.scoreNum);
+    let quizId: number;
+    this.score = new Score(this.scoreNum, quizId)
+    this.results.saveScore(this.score)
   }
   
   // trackByWrong(index, item) {
@@ -52,7 +67,16 @@ public scoreNum = 5;
       this.quizzes = results;
       console.log(results); 
     });
+
+    // this.otherResults.getQuizzes().subscribe(otherResults => {
+    //   this.userQuizzes = otherResults;
+    //   console.log(otherResults);
+    // });
   }
+
+//^^^ may not need to have a this.otherResults for the user Quizzes; will revisit
+
+
   //tv
   // playQuiz() {
   //   this.results.playQuiz().subscribe(results => {

@@ -18,17 +18,12 @@ export class RegisterComponent implements OnInit {
     console.log('RegisterComponent constructed!');
   }
 
-//   <form (submit)="onSubmit()">
-//    <input [(ngModel)]="playerName">
-// </form>
 
   credentialsInvalid: boolean = false;
 
   isAuthenticated$ = this.registerService.isAuthenticated$;
 
   register() {
-    // firstname = document.getElementById('fn').value;
-    // firstname = this.fn;
     let firstname = (<HTMLInputElement>document.getElementById('fn')).value;
     let lastname = (<HTMLInputElement>document.getElementById('ln')).value;
     let username = (<HTMLInputElement>document.getElementById('username')).value;
