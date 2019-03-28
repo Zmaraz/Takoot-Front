@@ -4,6 +4,7 @@ import { Quiz } from './models/quiz';
 import { environment as env } from '../environments/environment';
 import { tap, map, catchError, first } from 'rxjs/operators';
 import { Question } from './models/question';
+import { Answer } from './models/answer';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,20 @@ export class QuestionService {
       localStorage.getItem('jwt');
       localStorage.getItem('user');
     })).subscribe();
+  }
+
+  createAns(ans: Answer) {
+    console.log(`Attempting to create an answer: ${ans.answer}`);
+
+    let ansJson = JSON.stringify(ans);
+    console.log(ansJson);
+
+    this.http.post(env.API_URL + 'answer', ansJson, {observe: 'response'})
+    .pipe(map(resp => {
+      localStorage.getItem('jwt');
+      localStorage.getItem('user');
+    })).subscribe();
+
   }
 
 }
