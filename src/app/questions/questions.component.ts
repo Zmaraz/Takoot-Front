@@ -154,6 +154,7 @@ export class QuestionsComponent implements OnInit {
     this.questions.createAns(this.theAnswer);
   }
 
+  // testing, these don't work
   createAnswer10(wrongAns1) {
     wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-3')).value;
     this.theAnswer = new Answer (wrongAns1, 1);
