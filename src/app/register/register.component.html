@@ -1,45 +1,18 @@
 <!-- RegisterComponent! Yay! Woo! Hooray! -->
 
 
-<!-- <div class="register-form">
-  <h1 class="h3 mb-3 font-weight-normal"> Sign Up with Takoot!</h1>
-
-  <label for="fn-cred" class="sr-only">First Name</label>
-  <input #fn type="text" class="form-control" placeholder="First Name" required autofocus>
-  
-  <label for="ln-cred" class="sr-only">Last Name</label>
-  <input #ln type="text" class="form-control" placeholder="Last Name" required autofocus>
-  
-  <label for="email-cred" class="sr-only">Email</label>
-  <input #email type="text" class="form-control" placeholder="Email" required autofocus>
-  
-  <label for="username-cred" class="sr-only">Username</label>
-  <input #username type="text" class="form-control" placeholder="Username" required autofocus>
-  
-  <label for="password-cred" class="sr-only">Password</label>
-  <input #password type="password" class="form-control" placeholder="Password" required>
-  
-  <button id = "register-btn" class="btn btn-lg btn-primary btn-block">Sign Up</button>
-  <br> -->
-  <!-- <div *ngIf="credentialsInvalid" class="alert alert-danger text-center" id="alert-msg" role="alert">
-      Invalid Credentials!
-  </div> -->
-  <!-- <p class="mt-5 mb-3 text-muted">&copy; Takoot! 2017-2019</p>
-</div> -->
-
-
 <div class="container">
   <div class="col-md-6">
   <div id="logbox">
     <form id="signup" action="/">
       <h1>Create An Account</h1>
-      <input #fn name="user[fn]" type="text" placeholder="What's your first name?" autofocus="autofocus" required="required" class="input pass"/>
-      <input #ln name="user[ln]" type="text" placeholder="What's your last name?" autofocus="autofocus" required="required" class="input pass"/>
-      <input #username name="user[username]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
-      <input #password name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+      <input id="fn" name="user[fn]" type="text" placeholder="What's your first name?" autofocus="autofocus" required="required" class="input fn"/>
+      <input id= "ln" name="user[ln]" type="text" placeholder="What's your last name?" autofocus="autofocus" required="required" class="input ln"/>
+      <input id="username" name="user[username]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input username"/>
+      <input id="password" name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
       <input #confirm name="user[password2]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
-      <input #email name="user[email]" type="email" placeholder="Email address" class="input pass"/>
-      <input type="submit" value="Sign me up!" class="inputButton"/>
+      <input id="email" name="user[email]" type="email" placeholder="Email address" class="input email"/>
+      <input id = "register" (click)= "register()" type="submit" value="Sign me up!" class="inputButton"/>
       <div class="text-center">
           already have an account? <a routerLink="/login" id="login_id">login</a>
       </div>

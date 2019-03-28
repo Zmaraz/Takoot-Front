@@ -36,7 +36,7 @@ export class LoginComponent {
     this.isAuthenticated$.subscribe(isAuth => {
       if(isAuth) {
         this.credentialsInvalid = false;
-        this.router.navigate(['services']);
+        this.router.navigate(['/dashboard']);
       }
     }, err => {
       this.credentialsInvalid = true;
