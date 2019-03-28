@@ -3,8 +3,19 @@ export class Quiz {
     title: string;
     author_id:number;
     dateCreated: string;
-    dateLastCreated: string;
-    category_id: number;
-    difficulty_id: number;
-    default_id: number;
+    dateLastUpdated: string;
+    categoryId: number;
+    difficultyId: number;
+    defaultId: number;
+
+    constructor(title:string, dateCreated: string, dateLastUpdated: string, categoryId: number, difficultyId: number, defaultId: number) {
+        this.title = title;
+        this.dateCreated = dateCreated;
+        this.dateLastUpdated = dateLastUpdated;
+        this.categoryId = categoryId;
+        this.difficultyId = difficultyId;
+        this.defaultId = defaultId;
+
+    }
 }
+

@@ -18,20 +18,20 @@ export class DataService {
 
     // this should create 10 questions from TV category with multiple choice answers API
     // return this.http.get('https://reqres.in/api/users');
-    return this.http.get('https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple');
+    return this.http.get('https://opentdb.com/api.php?amount=5&category=14&difficulty=easy&type=multiple');
   }
 
   //animals
   playQuiz2() {
     console.log('playQuiz2()');
-    return this.http.get('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple');
+    return this.http.get('https://opentdb.com/api.php?amount=5&category=27&difficulty=medium&type=multiple');
 
   }
 
   //sports
   playQuiz3() {
     console.log('playQuiz3()');
-    return this.http.get('https://opentdb.com/api.php?amount=10&category=21&difficulty=hard&type=multiple');
+    return this.http.get('https://opentdb.com/api.php?amount=5&category=21&difficulty=hard&type=multiple');
 
   }
 

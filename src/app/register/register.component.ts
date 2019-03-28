@@ -27,11 +27,11 @@ export class RegisterComponent implements OnInit {
   register(firstname, lastname, username, password, email) {
     // firstname = document.getElementById('fn').value;
     // firstname = this.fn;
-    firstname = document.getElementById('fn').value;
-    lastname = document.getElementById('ln').value;
-    username = document.getElementById('username').value;
-    password = document.getElementById('password').value;
-    email = document.getElementById('email').value;
+    firstname = (<HTMLInputElement>document.getElementById('fn')).value;
+    lastname = (<HTMLInputElement>document.getElementById('ln')).value;
+    username = (<HTMLInputElement>document.getElementById('username')).value;
+    password = (<HTMLInputElement>document.getElementById('password')).value;
+    email = (<HTMLInputElement>document.getElementById('email')).value;
     // use data binding [()] to retrieve the User id info from the form in the register html
     this.user = new User (firstname, lastname, username, password, email);
     console.log(this.user);
