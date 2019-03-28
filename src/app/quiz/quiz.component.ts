@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 // document.getElementById("questionId");
 export class QuizComponent implements OnInit {
 
-public scoreNum = 10;
+public scoreNum = 5;
 
   quizzes: Object;
 

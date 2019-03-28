@@ -14,13 +14,18 @@ export class ProfileComponent implements OnInit {
    isAuthenticated$ = this.authService.isAuthenticated$;
 
    // creating variable, credentialsIsInvalid of type boolean
-   credentialsInvalid: boolean = false;
+   userInvalid: boolean = false;
  
    // credentials is a Credentials class/object
    user: User;
 
+   
+
   constructor(private authService: AuthService, private router: Router) { 
-    console.log('Profileomponent constructed!');
+    console.log('ProfileComponent constructed!');
+    
+    console.log(localStorage.getItem('user').split);
+    //console.log('this is username' + this.user.username);
     this.showProfile;
   }
 
@@ -35,7 +40,20 @@ export class ProfileComponent implements OnInit {
 
   
   ngOnInit() {
-    this.showProfile;
+    let userParse: string[] = (localStorage.getItem('user').split(','));
+    console.log("in ngOnInit in profile" + userParse[0]);
+    console.log("in ngOnInit in profile" + userParse[1]);
+    console.log("in ngOnInit in profile" + userParse[2]);
+    console.log("in ngOnInit in profile" + userParse[3]);
+    console.log("in ngOnInit in profile" + userParse[4]);
+    console.log("in ngOnInit in profile" + userParse[5]);
+    //console.log('this is username' + this.user.username);
+    //document.getElementById('idTag').innerHTML = userParse[0];
+    document.getElementById('firstnameTag').innerHTML = userParse[1];
+    document.getElementById('lastnameTag').innerHTML = userParse[2];
+    document.getElementById('usernameTag').innerHTML = userParse[3];
+    document.getElementById('passwordTag').innerHTML = userParse[4];
+    document.getElementById('emailTag').innerHTML = userParse[5];
   }
 
 }
