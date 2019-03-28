@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'quiz',
@@ -13,8 +14,9 @@ export class QuizComponent implements OnInit {
 public scoreNum = 5;
 
   quizzes: Object;
+  userQuizzes: Object;
 
-  constructor(private results: DataService) {
+  constructor(private results: DataService, private otherResults: GamesService) {
     //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
    
     console.log("this is inside the constructor method in quiz component  " + this.results); 
@@ -33,8 +35,6 @@ public scoreNum = 5;
   }
   
   getScore() {
-    
-
     console.log('potato');
   
   }
@@ -52,7 +52,16 @@ public scoreNum = 5;
       this.quizzes = results;
       console.log(results); 
     });
+
+    // this.otherResults.getQuizzes().subscribe(otherResults => {
+    //   this.userQuizzes = otherResults;
+    //   console.log(otherResults);
+    // });
   }
+
+//^^^ may not need to have a this.otherResults for the user Quizzes; will revisit
+
+
   //tv
   // playQuiz() {
   //   this.results.playQuiz().subscribe(results => {

@@ -1,5 +1,16 @@
-<h1> 
+<h1>
 
-  We will add a table that populates whenever the current user creates a quiz lit 
+  User Created Quizzes
 
-</h1>>
+</h1>
+
+
+<div>
+  <ol *ngIf="userQuizzes">
+    <li *ngFor="let userQuiz of userQuizzes">
+      <p id="userQuestionId">{{ userQuiz.title }} created by {{ userQuiz.user.username }} </p>
+    </li>
+  </ol>
+
+
+</div>
