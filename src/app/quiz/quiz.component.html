@@ -65,7 +65,7 @@
             <div class="modal-footer">
               <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <!-- Save score should be functional -->
-              <button routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Save Scores</button>
+              <button (click)="saveScore()" routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Save Scores</button>
             </div>
           </div>
         </div>
