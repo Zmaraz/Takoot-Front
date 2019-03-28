@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { environment as env } from '../environments/environment';
+import { Score } from './models/score';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -73,4 +76,10 @@ export class DataService {
     }
   }
 
+  saveScore(score: Score){
+
+    console.log('in saveScore()');
+
+    return this.http.post(env.API_URL + 'high-score', {observe: 'response'}).subscribe();
+  }
 }
