@@ -9,23 +9,25 @@
 
 <div id="user-quiz-list">
   <ol *ngIf="userQuizzes">
+    <!-- for each quiz in all the quizzes -->
     <li *ngFor="let userQuiz of userQuizzes">
       <p id="userQuestionId">"{{ userQuiz.title }}" created by {{ userQuiz.user.username }}</p>
-      
+
     </li>
   </ol>
 </div>
 
-<div id="userQuiz">
-    <ul *ngIf="userQuizzes">
-      <!-- for each quiz in this list of user quizzes-->
-        <li  *ngFor="let userQuiz of userQuizzes">
-          <!-- and for each set of questions in each quiz-->
-          <!-- <p id="questionId" *ngFor="let questions of userQuiz">{{ questions.question }}</p> -->
-          
-          <ul>
-            <!-- <button id="answer" name="wrong"> {{ userQuiz.questions.question.answers }} </button>  -->
-          </ul>
-        </li>
-      </ul> 
-</div>
+<!-- this displays the questions-->
+<ul>
+  <li *ngFor="let userQuiz of userQuizzes">
+    <p *ngFor="let question of userQuiz.questions"> {{ question.question }}</p>
+    <p *ngFor="let question of userQuiz.questions"> {{ question.answers }} </p>
+    <p *ngFor="let answer of userQuiz.questions.answers"> {{ answer.answers }}</p>
+    <!-- *ngFor="let answers of " -->
+  
+    <!-- <p *ngFor="let answer of userQuiz.questions.answers">
+       {{ answer }}
+    </p> -->
+  
+  </li>
+</ul>
