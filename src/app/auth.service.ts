@@ -56,6 +56,7 @@ export class AuthService {
         console.log(localStorage.getItem('jwt'));
         localStorage.setItem('user', JSON.stringify(resp.body));
         console.log('user');
+        console.log(localStorage.getItem('user'));
         this.isAuthenticated = true;
       })).subscribe();
   }
