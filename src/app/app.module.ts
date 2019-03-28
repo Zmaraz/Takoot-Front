@@ -18,6 +18,7 @@ import { LandingComponent } from './landing/landing.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { UserQuizzesComponent } from './user-quizzes/user-quizzes.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 import { QuestionPipePipe } from './question-pipe.pipe';
 
@@ -27,6 +28,7 @@ import { QuizScoreService } from './quiz-score.service';
 import { UserService } from './user.service';
 
 import { TokenInterceptor } from './token.interceptor';
+
 
 
 
@@ -43,7 +45,8 @@ const ROUTES = [
   { path: 'landing', component: LandingComponent},
   { path: 'questions', component: QuestionsComponent},
   { path: 'leaderboards', component: LeaderboardsComponent},
-  { path: 'user-quizzes', component: UserQuizzesComponent}
+  { path: 'user-quizzes', component: UserQuizzesComponent},
+  { path: 'update-profile', component: UpdateProfileComponent }  
 ];
 
 @NgModule({
@@ -60,7 +63,8 @@ const ROUTES = [
     LeaderboardsComponent,
     UserQuizzesComponent,
     QuestionPipePipe,
-    ProfileComponent
+    ProfileComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,

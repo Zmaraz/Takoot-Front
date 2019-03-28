@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="col-md-6">
+    <div id="logbox">
+      <form id="update" action="/">
+        <h1>Update User</h1>
+        <input id="fn" name="user[fn]" type="text" placeholder="Enter your desired or exsisting username" autofocus="autofocus" required="required" class="input fn"/>
+        <input id= "ln" name="user[ln]" type="text" placeholder="Enter your desired or exsisting firstname" autofocus="autofocus" required="required" class="input ln"/>
+        <input id="username" name="user[username]" type="text" placeholder="Enter your desired or exsisting lastname" autofocus="autofocus" required="required" class="input username"/>
+        <input id="password" name="user[password]" type="password" placeholder="Enter your desired or exsisting password" required="required" class="input pass"/>
+        <input id="email" name="user[email]" type="password" placeholder="Enter your desired or exsisting email" required="required" class="input pass"/>
+        
+        <input id = "register" (click)= "update()" type="submit" value="Update!" class="inputButton"/>
+  
+      </form>
+    </div>
+   </div>
