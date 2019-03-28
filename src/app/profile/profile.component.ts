@@ -26,17 +26,17 @@ export class ProfileComponent implements OnInit {
     
     console.log(localStorage.getItem('user').split);
     //console.log('this is username' + this.user.username);
-    this.showProfile;
+ 
   }
 
-  showProfile(user: User) {
-    console.log('in showProfile()');
-    document.getElementById('usernameTag').innerText = this.user.username;
-    document.getElementById('firstnameTag').innerText = this.user.firstName;
-    document.getElementById('lastnameTag').innerText = this.user.lastName;
-    document.getElementById('passwordTag').innerText = this.user.password;
-    document.getElementById('emailTag').innerText = this.user.email;
-  }
+  // showProfile(user: User) {
+  //   console.log('in showProfile()');
+  //   document.getElementById('usernameTag').innerText = this.user.username;
+  //   document.getElementById('firstnameTag').innerText = this.user.firstName;
+  //   document.getElementById('lastnameTag').innerText = this.user.lastName;
+  //   document.getElementById('passwordTag').innerText = this.user.password;
+  //   document.getElementById('emailTag').innerText = this.user.email;
+  // }
 
   
   ngOnInit() {
