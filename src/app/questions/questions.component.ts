@@ -162,4 +162,75 @@ export class QuestionsComponent implements OnInit {
     this.questions.createAns(this.theAnswer);
   }
 
+  createAnswer11(wrongAns2) {
+    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-3')).value;
+    this.theAnswer = new Answer (wrongAns2, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer12(wrongAns3) {
+    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-3')).value;
+    this.theAnswer = new Answer (wrongAns3, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer13(correctAns) {
+    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-4')).value;
+    this.theAnswer = new Answer (correctAns, 0);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer14(wrongAns1) {
+    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-4')).value;
+    this.theAnswer = new Answer (wrongAns1, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer15(wrongAns2) {
+    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-4')).value;
+    this.theAnswer = new Answer (wrongAns2, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer16(wrongAns3) {
+    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-4')).value;
+    this.theAnswer = new Answer (wrongAns3, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  //question 5 answers
+  createAnswer17(correctAns) {
+    correctAns = (<HTMLInputElement>document.getElementById('correct-quest-5')).value;
+    this.theAnswer = new Answer (correctAns, 0);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer18(wrongAns1) {
+    wrongAns1 = (<HTMLInputElement>document.getElementById('incorrect1-quest-5')).value;
+    this.theAnswer = new Answer (wrongAns1, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer19(wrongAns2) {
+    wrongAns2 = (<HTMLInputElement>document.getElementById('incorrect2-quest-5')).value;
+    this.theAnswer = new Answer (wrongAns2, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
+  createAnswer20(wrongAns3) {
+    wrongAns3 = (<HTMLInputElement>document.getElementById('incorrect3-quest-5')).value;
+    this.theAnswer = new Answer (wrongAns3, 1);
+    console.log(this.theQuestion);
+    this.questions.createAns(this.theAnswer);
+  }
+
 }
