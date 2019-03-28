@@ -24,6 +24,7 @@ import { QuestionPipePipe } from './question-pipe.pipe';
 import { AuthService } from './auth.service';
 import { DataService } from './data.service';
 import { QuizScoreService } from './quiz-score.service';
+import { UserService } from './user.service';
 
 import { TokenInterceptor } from './token.interceptor';
 
@@ -77,7 +78,8 @@ const ROUTES = [
       multi: true
     }, 
     DataService,
-    QuizScoreService
+    QuizScoreService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

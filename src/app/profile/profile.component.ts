@@ -41,14 +41,13 @@ export class ProfileComponent implements OnInit {
   
   ngOnInit() {
     let userParse: string[] = (localStorage.getItem('user').split(','));
-    console.log("in ngOnInit in profile" + userParse[0]);
-    console.log("in ngOnInit in profile" + userParse[1]);
-    console.log("in ngOnInit in profile" + userParse[2]);
-    console.log("in ngOnInit in profile" + userParse[3]);
-    console.log("in ngOnInit in profile" + userParse[4]);
-    console.log("in ngOnInit in profile" + userParse[5]);
-    //console.log('this is username' + this.user.username);
-    //document.getElementById('idTag').innerHTML = userParse[0];
+    // console.log("in ngOnInit in profile" + userParse[0]);
+    // console.log("in ngOnInit in profile" + userParse[1]);
+    // console.log("in ngOnInit in profile" + userParse[2]);
+    // console.log("in ngOnInit in profile" + userParse[3]);
+    // console.log("in ngOnInit in profile" + userParse[4]);
+    // console.log("in ngOnInit in profile" + userParse[5]);
+    
     document.getElementById('firstnameTag').innerHTML = userParse[1];
     document.getElementById('lastnameTag').innerHTML = userParse[2];
     document.getElementById('usernameTag').innerHTML = userParse[3];
