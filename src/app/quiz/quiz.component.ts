@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Score } from '../models/score';
 
 @Component({
   selector: 'quiz',
@@ -13,6 +14,7 @@ export class QuizComponent implements OnInit {
 public scoreNum = 5;
 
   quizzes: Object;
+  score: Score;
 
   constructor(private results: DataService) {
     //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
@@ -37,6 +39,13 @@ public scoreNum = 5;
 
     console.log('potato');
   
+  }
+
+  saveScore(){
+    console.log(this.scoreNum);
+    let quizId: number;
+    this.score = new Score(this.scoreNum, quizId)
+    this.results.saveScore(this.score)
   }
   
   // trackByWrong(index, item) {

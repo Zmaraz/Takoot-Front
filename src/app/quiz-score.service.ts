@@ -25,7 +25,7 @@ export class QuizScoreService {
       // empty strings represent the jwt and user
   
       // MAKE NOTE, AUTH REPRESENTS THE END POINT... CHECK WITH BACKEND
-     return this.http.get(env.API_URL + 'high-score', {observe: 'response'});
+     return this.http.get(env.API_URL + 'users', {observe: 'response'});
     
   }
 
