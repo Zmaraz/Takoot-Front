@@ -1,53 +1,34 @@
 <h1>
   Quiz
 </h1>
-<p><code>&lt;iquestion text="In which year, did the first world war start?::1912;1913;__1914;1915"&gt;&lt;/iquestion&gt;</code></p>
 
-<!-- use interpolation for the h1 to put the quiz number in-->
-
-<!-- this is formatted to display quizzes  -->
-
-<!-- <div [ngSwitch]="view"> -->
+  <div>
 
 
-
-
-  
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
         <p id="questionId">{{ quiz.question |  questionPipe }}</p>
         
         <ul>
           <!-- <li id="correct"> <input (click)="correctAnswer()" type="input" name="wrong" value="true" > {{ quiz.correct_answer }} </li> -->
-          <li id="correct"> <input (click)="correctAnswer()" type="button" name="wrong" > {{ quiz.correct_answer }} </li>
-          <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li>
+          <!-- <li id="correct"> <button (click)="correctAnswer()" name="wrong" value="This one!"> {{ quiz.correct_answer }} </li> -->
+          <button id="correctBtn"  (click)="correctAnswer()" name="wrong"  > {{ quiz.correct_answer }} </button>
+          
+          <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <button (click)="wrongAnswer()" name="wrong" value="This one!"> {{ answer }} </li> -->
+          <button id="wrongBtn" *ngFor="let answer of quiz.incorrect_answers" (click)="wrongAnswer()" name="wrong" value="This one!"  >  {{ answer }} </button>
+          <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li> -->
+          
         </ul>
       </li>
     </ul> 
-    
-    <!-- <div>
-        <ul *ngIf="quizzes">
-      <li *ngFor="let quiz of quizzes.results">
-        <p> {{ quiz.question }}</p>
-        <ul>
-            <li *ngIf= ""> <button ng-click="count = count + 1"  name="wrong"> {{ quiz.correct_answer }} </li>
-            <li *ngFor="let answer of quiz.incorrect_answers; trackBy: trackByWrong"> <button ng-click="count = count - 1" name="wrong"> {{ answer }} </li>
-        </ul>
-      </li>
-      </ul>
-    </div> -->
 
+  </div> 
 
     <!-- Button trigger modal -->
 
-    <input (click)="getScore()" id="viewScoreBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"/>
+    <button (click)="getScore()" id="viewScoreBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       View Score!
-  <!-- </input> -->
-
-
-
-
-
+    </button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -58,8 +39,9 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              the user scores will go here.
+            <div id="userScore" class="modal-body">
+              <p id="score">  -Quiz Completed- </p>
+              You got : {{scoreNum}} correct
             </div>
             <div class="modal-footer">
               <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
