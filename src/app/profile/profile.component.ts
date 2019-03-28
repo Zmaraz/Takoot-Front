@@ -80,7 +80,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  updateUser() {
+  update() {
     console.log("in update()");
     this.user = new User (this.fnFinal1, this.lnFinal1, this.unFinal1, this.pwFinal1, this.emFinal);
     

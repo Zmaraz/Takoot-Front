@@ -17,9 +17,17 @@ export class UpdateProfileComponent implements OnInit {
 
   }
 
-  user
+  user: User;
+
+  public userParse: string[] = (localStorage.getItem('user').split(','));
+
+  // get rid of everything in that element up until what we want in quotes " "
+  public userIdParse1: string = this.userParse[0].substring(11);
+  public idFinal: string = this.userIdParse1.replace('"', '');
 
   ngOnInit() {
+    console.log(localStorage.getItem('user'));
+    console.log(this.idFinal);
   }
 
   updateUser() {
@@ -34,6 +42,8 @@ export class UpdateProfileComponent implements OnInit {
     
 
     this.user = new User (firstname, lastname, username, password, email);
+
+    this.userService.update(this.user);
 
     console.log(this.user);
 
