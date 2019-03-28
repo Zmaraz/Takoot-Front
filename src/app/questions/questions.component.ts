@@ -31,21 +31,19 @@ export class QuestionsComponent implements OnInit {
 
   createQuiz(title, dateCreated, dateLastUpdated, categoryId, difficultyId, defaultId) {
 
+    // this part of the function, sends the Quiz
     title = (<HTMLInputElement>document.getElementById('quizTitle')).value;
     dateCreated = new Date();
     dateLastUpdated = dateCreated;
-
-    // var opt = sel.options[sel.selectedIndex];
-    // will come back to parse through and get the value that user clicked
     categoryId = (<HTMLInputElement>document.getElementById('category')).value;
-
-    // will come back to parse through and get the value that user clicked
     difficultyId = (<HTMLInputElement>document.getElementById('difficulty')).value;
-
     defaultId = 2;
 
     this.theQuiz = new Quiz (title, dateCreated, dateLastUpdated, categoryId, difficultyId, defaultId);
     console.log(this.theQuiz);
+
+
+    // this part of the function, sends all the questions
 
     this.questions.create(this.theQuiz);
   }
