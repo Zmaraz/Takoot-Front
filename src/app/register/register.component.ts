@@ -24,14 +24,14 @@ export class RegisterComponent implements OnInit {
 
 
 
-  register(firstname, lastname, username, password, email) {
+  register() {
     // firstname = document.getElementById('fn').value;
     // firstname = this.fn;
-    firstname = (<HTMLInputElement>document.getElementById('fn')).value;
-    lastname = (<HTMLInputElement>document.getElementById('ln')).value;
-    username = (<HTMLInputElement>document.getElementById('username')).value;
-    password = (<HTMLInputElement>document.getElementById('password')).value;
-    email = (<HTMLInputElement>document.getElementById('email')).value;
+    let firstname = (<HTMLInputElement>document.getElementById('fn')).value;
+    let lastname = (<HTMLInputElement>document.getElementById('ln')).value;
+    let username = (<HTMLInputElement>document.getElementById('username')).value;
+    let password = (<HTMLInputElement>document.getElementById('password')).value;
+    let email = (<HTMLInputElement>document.getElementById('email')).value;
     // use data binding [()] to retrieve the User id info from the form in the register html
     this.user = new User (firstname, lastname, username, password, email);
     console.log(this.user);
