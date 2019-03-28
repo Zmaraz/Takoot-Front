@@ -65,5 +65,23 @@ export class QuestionsComponent implements OnInit {
     console.log(this.theQuestion);
     this.questions.createQuest(this.theQuestion);
   }
+  createQuestion3(quest) {
+    quest = (<HTMLInputElement>document.getElementById('quest3')).value;
+    this.theQuestion = new Question (quest);
+    console.log(this.theQuestion);
+    this.questions.createQuest(this.theQuestion);
+  }
+  createQuestion4(quest) {
+    quest = (<HTMLInputElement>document.getElementById('quest4')).value;
+    this.theQuestion = new Question (quest);
+    console.log(this.theQuestion);
+    this.questions.createQuest(this.theQuestion);
+  }
+  createQuestion5(quest) {
+    quest = (<HTMLInputElement>document.getElementById('quest5')).value;
+    this.theQuestion = new Question (quest);
+    console.log(this.theQuestion);
+    this.questions.createQuest(this.theQuestion);
+  }
 
 }

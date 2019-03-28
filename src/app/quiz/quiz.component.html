@@ -25,9 +25,9 @@
 
     <!-- Button trigger modal -->
 
-    <input (click)="getScore()" id="viewScoreBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"/>
+    <button (click)="getScore()" id="viewScoreBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       View Score!
-
+    </button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -39,8 +39,8 @@
               </button>
             </div>
             <div id="userScore" class="modal-body">
-              <p id="score">  0/0 </p>
-              the user scores will go here. {{scoreNum}}
+              <p id="score">  -Quiz Completed- </p>
+              You got : {{scoreNum}} correct
             </div>
             <div class="modal-footer">
               <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
