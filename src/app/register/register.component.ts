@@ -22,7 +22,9 @@ export class RegisterComponent implements OnInit {
 //    <input [(ngModel)]="playerName">
 // </form>
 
+  credentialsInvalid: boolean = false;
 
+  isAuthenticated$ = this.registerService.isAuthenticated$;
 
   register() {
     // firstname = document.getElementById('fn').value;
@@ -38,9 +40,21 @@ export class RegisterComponent implements OnInit {
 
     this.registerService.register(this.user);
 
+    this.isAuthenticated$.subscribe(isAuth => {
+      if(isAuth) {
+        this.credentialsInvalid = false;
+        this.router.navigate(['/dashboard']);
+      }
+    }, err => {
+      this.credentialsInvalid = true;
+    });
   }
+
+  
 
   ngOnInit() {
   }
+
+  
 
 }
