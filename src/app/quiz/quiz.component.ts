@@ -43,7 +43,7 @@ public scoreNum = 5;
 
   saveScore(){
     console.log(this.scoreNum);
-    let quizId: number;
+    let quizId: number = 100;
     this.score = new Score(this.scoreNum, quizId)
     this.results.saveScore(this.score)
   }
