@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { 
     console.log('ProfileComponent constructed!');
     
-    console.log(localStorage.getItem('user').split);
+    console.log(localStorage.getItem('user'));
     //console.log('this is username' + this.user.username);
  
   }
@@ -59,12 +59,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     
 
-    console.log("in ngOnInit in profile" + this.userParse[0]);
-    console.log("in ngOnInit in profile" + this.userParse[1]);
-    console.log("in ngOnInit in profile" + this.userParse[2]);
-    console.log("in ngOnInit in profile" + this.userParse[3]);
-    console.log("in ngOnInit in profile" + this.userParse[4]);
-    console.log("in ngOnInit in profile" + this.userParse[5]);
+    // console.log("in ngOnInit in profile" + this.userParse[0]);
+    // console.log("in ngOnInit in profile" + this.userParse[1]);
+    // console.log("in ngOnInit in profile" + this.userParse[2]);
+    // console.log("in ngOnInit in profile" + this.userParse[3]);
+    // console.log("in ngOnInit in profile" + this.userParse[4]);
+    // console.log("in ngOnInit in profile" + this.userParse[5]);
 
     //this.user.firstName = userParse[1];
 
@@ -80,7 +80,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  update() {
+  updateUser() {
     console.log("in update()");
     this.user = new User (this.fnFinal1, this.lnFinal1, this.unFinal1, this.pwFinal1, this.emFinal);
     

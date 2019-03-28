@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment as env } from '../environments/environment';
 
 import { User } from './models/user';
 
@@ -14,14 +15,15 @@ export class UserService {
   }
 
 
-  update(user: User) {
+  update(updatedUser: User) {
 
     console.log("inside of update service yee");
 
-    let userJson = JSON.stringify(user);
-    console.log(userJson);
+    let updatedUserJson = JSON.stringify(updatedUser);
+    console.log(updatedUserJson);
 
-    
+    this.http.post(env.API_URL + 'users', updatedUserJson, {observe: 'response'})
+    .subscribe();
 
   }
 
