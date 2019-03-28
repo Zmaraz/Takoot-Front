@@ -101,15 +101,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _games_games_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./games/games.component */ "./src/app/games/games.component.ts");
 /* harmony import */ var _questions_questions_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./questions/questions.component */ "./src/app/questions/questions.component.ts");
 /* harmony import */ var _quiz_quiz_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./quiz/quiz.component */ "./src/app/quiz/quiz.component.ts");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
-/* harmony import */ var _token_interceptor__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./token.interceptor */ "./src/app/token.interceptor.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _token_interceptor__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./token.interceptor */ "./src/app/token.interceptor.ts");
+/* harmony import */ var _landing_landing_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./landing/landing.component */ "./src/app/landing/landing.component.ts");
 
 
 
 
 
 
+
+// import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -126,7 +129,7 @@ var ROUTES = [
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"] },
     { path: 'games', component: _games_games_component__WEBPACK_IMPORTED_MODULE_11__["GamesComponent"] },
     { path: 'quiz', component: _quiz_quiz_component__WEBPACK_IMPORTED_MODULE_13__["QuizComponent"] },
-    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"] }
+    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -141,20 +144,21 @@ var AppModule = /** @class */ (function () {
                 _games_games_component__WEBPACK_IMPORTED_MODULE_11__["GamesComponent"],
                 _questions_questions_component__WEBPACK_IMPORTED_MODULE_12__["QuestionsComponent"],
                 _quiz_quiz_component__WEBPACK_IMPORTED_MODULE_13__["QuizComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"]
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"],
+                _landing_landing_component__WEBPACK_IMPORTED_MODULE_17__["LandingComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(ROUTES),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
             ],
             providers: [
-                _auth_service__WEBPACK_IMPORTED_MODULE_14__["AuthService"],
+                _auth_service__WEBPACK_IMPORTED_MODULE_15__["AuthService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HTTP_INTERCEPTORS"],
-                    useClass: _token_interceptor__WEBPACK_IMPORTED_MODULE_15__["TokenInterceptor"],
+                    useClass: _token_interceptor__WEBPACK_IMPORTED_MODULE_16__["TokenInterceptor"],
                     multi: true
                 }
             ],
@@ -222,22 +226,22 @@ var AuthService = /** @class */ (function () {
         // MAKE NOTE, AUTH REPRESENTS THE END POINT... CHECK WITH BACKEND
         this.http.post(_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].API_URL + 'auth', credentialsJson, { observe: 'response' })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (resp) {
-            localStorage.setItem('', resp.headers.get('Authorization'));
-            localStorage.setItem('', JSON.stringify(resp.body));
+            localStorage.setItem('user', resp.headers.get('Authorization'));
+            localStorage.setItem('jwt', JSON.stringify(resp.body));
             _this.isAuthenticated = true;
         })).subscribe();
     };
     // logout method will remove the JWT's from the associated user in local storage
     AuthService.prototype.logout = function () {
-        if (localStorage.getItem('') || localStorage.getItem('')) {
+        if (localStorage.getItem('user') || localStorage.getItem('jwt')) {
             console.log('Logging out current user');
-            localStorage.removeItem('');
-            localStorage.removeItem('');
+            localStorage.removeItem('user');
+            localStorage.removeItem('jwt');
         }
         this.isAuthenticated = false;
     };
     AuthService.prototype.hasToken = function () {
-        return !!localStorage.getItem('rbs-jwt');
+        return !!localStorage.getItem('jwt');
     };
     AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
@@ -259,7 +263,7 @@ var AuthService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "@import \"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700\";\r\n\r\n.wrapper {\r\n    display: flex;\r\n    width: 100%;\r\n    align-items: stretch;\r\n}\r\n\r\n#sidebar.active {\r\n    margin-left: -250px;\r\n}\r\n\r\n@media (max-width: 768px) {\r\n    #sidebar {\r\n        margin-left: -250px;\r\n    }\r\n    #sidebar.active {\r\n        margin-left: 0;\r\n    }\r\n}\r\n\r\nbody {\r\n    font-family: 'Poppins', sans-serif;\r\n    background: #fafafa;\r\n}\r\n\r\np {\r\n    font-family: 'Poppins', sans-serif;\r\n    font-size: 1.1em;\r\n    font-weight: 300;\r\n    line-height: 1.7em;\r\n    color: #999;\r\n}\r\n\r\na, a:hover, a:focus {\r\n    color: inherit;\r\n    text-decoration: none;\r\n    transition: all 0.3s;\r\n}\r\n\r\n#sidebar {\r\n    min-width: 250px;\r\n    max-width: 250px;\r\n    min-height: 100vh;\r\n    width: 250px;\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    height: 100vh;\r\n    z-index: 999;\r\n    background: rgb(22, 184, 57);\r\n    color: #fff;\r\n    transition: all 0.3s;\r\n}\r\n\r\n#sidebar .sidebar-header {\r\n    padding: 20px;\r\n    background: rgb(22, 184, 57);\r\n}\r\n\r\n#sidebar ul.components {\r\n    padding: 20px 0;\r\n    border-bottom: 1px solid rgb(22, 184, 57);\r\n}\r\n\r\n#sidebar ul p {\r\n    color: #fff;\r\n    padding: 10px;\r\n}\r\n\r\n#sidebar ul li a {\r\n    padding: 10px;\r\n    font-size: 1.1em;\r\n    display: block;\r\n}\r\n\r\n#sidebar ul li a:hover {\r\n    color: #7386D5;\r\n    background: #fff;\r\n}\r\n\r\n#sidebar ul li.active > a, a[aria-expanded=\"true\"] {\r\n    color: #fff;\r\n    background: #6d7fcc;\r\n}\r\n\r\nul ul a {\r\n    font-size: 0.9em !important;\r\n    padding-left: 30px !important;\r\n    background: #6d7fcc;\r\n}\r\n\r\n#content {\r\n    margin-left: 40%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDZFQUE2RTs7QUFFN0U7SUFDSSxhQUFhO0lBQ2IsV0FBVztJQUNYLG9CQUFvQjtBQUN4Qjs7QUFFQTtJQUNJLG1CQUFtQjtBQUN2Qjs7QUFFQTtJQUNJO1FBQ0ksbUJBQW1CO0lBQ3ZCO0lBQ0E7UUFDSSxjQUFjO0lBQ2xCO0FBQ0o7O0FBRUE7SUFDSSxrQ0FBa0M7SUFDbEMsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0ksa0NBQWtDO0lBQ2xDLGdCQUFnQjtJQUNoQixnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLFdBQVc7QUFDZjs7QUFFQTtJQUNJLGNBQWM7SUFDZCxxQkFBcUI7SUFDckIsb0JBQW9CO0FBQ3hCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsWUFBWTtJQUNaLGVBQWU7SUFDZixNQUFNO0lBQ04sT0FBTztJQUNQLGFBQWE7SUFDYixZQUFZO0lBQ1osNEJBQTRCO0lBQzVCLFdBQVc7SUFDWCxvQkFBb0I7QUFDeEI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsNEJBQTRCO0FBQ2hDOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHlDQUF5QztBQUM3Qzs7QUFFQTtJQUNJLFdBQVc7SUFDWCxhQUFhO0FBQ2pCOztBQUVBO0lBQ0ksYUFBYTtJQUNiLGdCQUFnQjtJQUNoQixjQUFjO0FBQ2xCOztBQUNBO0lBQ0ksY0FBYztJQUNkLGdCQUFnQjtBQUNwQjs7QUFFQTtJQUNJLFdBQVc7SUFDWCxtQkFBbUI7QUFDdkI7O0FBQ0E7SUFDSSwyQkFBMkI7SUFDM0IsNkJBQTZCO0lBQzdCLG1CQUFtQjtBQUN2Qjs7QUFHQTtJQUNJLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9UG9wcGluczozMDAsNDAwLDUwMCw2MDAsNzAwXCI7XHJcblxyXG4ud3JhcHBlciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBhbGlnbi1pdGVtczogc3RyZXRjaDtcclxufVxyXG5cclxuI3NpZGViYXIuYWN0aXZlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiAtMjUwcHg7XHJcbn1cclxuXHJcbkBtZWRpYSAobWF4LXdpZHRoOiA3NjhweCkge1xyXG4gICAgI3NpZGViYXIge1xyXG4gICAgICAgIG1hcmdpbi1sZWZ0OiAtMjUwcHg7XHJcbiAgICB9XHJcbiAgICAjc2lkZWJhci5hY3RpdmUge1xyXG4gICAgICAgIG1hcmdpbi1sZWZ0OiAwO1xyXG4gICAgfVxyXG59XHJcblxyXG5ib2R5IHtcclxuICAgIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmFmYWZhO1xyXG59XHJcblxyXG5wIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIGxpbmUtaGVpZ2h0OiAxLjdlbTtcclxuICAgIGNvbG9yOiAjOTk5O1xyXG59XHJcblxyXG5hLCBhOmhvdmVyLCBhOmZvY3VzIHtcclxuICAgIGNvbG9yOiBpbmhlcml0O1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuM3M7XHJcbn1cclxuXHJcbiNzaWRlYmFyIHtcclxuICAgIG1pbi13aWR0aDogMjUwcHg7XHJcbiAgICBtYXgtd2lkdGg6IDI1MHB4O1xyXG4gICAgbWluLWhlaWdodDogMTAwdmg7XHJcbiAgICB3aWR0aDogMjUwcHg7XHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICB0b3A6IDA7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgaGVpZ2h0OiAxMDB2aDtcclxuICAgIHotaW5kZXg6IDk5OTtcclxuICAgIGJhY2tncm91bmQ6IHJnYigyMiwgMTg0LCA1Nyk7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIHRyYW5zaXRpb246IGFsbCAwLjNzO1xyXG59XHJcblxyXG4jc2lkZWJhciAuc2lkZWJhci1oZWFkZXIge1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICAgIGJhY2tncm91bmQ6IHJnYigyMiwgMTg0LCA1Nyk7XHJcbn1cclxuXHJcbiNzaWRlYmFyIHVsLmNvbXBvbmVudHMge1xyXG4gICAgcGFkZGluZzogMjBweCAwO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYigyMiwgMTg0LCA1Nyk7XHJcbn1cclxuXHJcbiNzaWRlYmFyIHVsIHAge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcblxyXG4jc2lkZWJhciB1bCBsaSBhIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBmb250LXNpemU6IDEuMWVtO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuI3NpZGViYXIgdWwgbGkgYTpob3ZlciB7XHJcbiAgICBjb2xvcjogIzczODZENTtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbn1cclxuXHJcbiNzaWRlYmFyIHVsIGxpLmFjdGl2ZSA+IGEsIGFbYXJpYS1leHBhbmRlZD1cInRydWVcIl0ge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBiYWNrZ3JvdW5kOiAjNmQ3ZmNjO1xyXG59XHJcbnVsIHVsIGEge1xyXG4gICAgZm9udC1zaXplOiAwLjllbSAhaW1wb3J0YW50O1xyXG4gICAgcGFkZGluZy1sZWZ0OiAzMHB4ICFpbXBvcnRhbnQ7XHJcbiAgICBiYWNrZ3JvdW5kOiAjNmQ3ZmNjO1xyXG59XHJcblxyXG5cclxuI2NvbnRlbnQge1xyXG4gICAgbWFyZ2luLWxlZnQ6IDQwJTtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -270,7 +274,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  dashboard works!\r\n</p>\r\n"
+module.exports = "<!-- \r\n  for the dashboard, we need a few things:\r\n      1. side bar/column/nav with profile information\r\n          a. My Games button (questions by author id)\r\n          b. Edit Profile button\r\n      2. cards to display Play, Create, Search, View Leaderboards\r\n      3. Final bottom card for User Stats\r\n-->\r\n\r\n\r\n<nav class=\"navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow\">\r\n  <a class=\"navbar-brand col-sm-3 col-md-2 mr-0\" routerLink=\"\">Home</a>\r\n  <ul class=\"navbar-nav px-3\">\r\n    <li class=\"nav-item text-nowrap\">\r\n      <a class=\"nav-link\" routerLink=\"\">Sign out</a>\r\n    </li>\r\n  </ul>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\r\n      <div class=\"sidebar-sticky\">\r\n        <ul class=\"nav flex-column\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" routerLink=\"\">\r\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"\r\n                stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-home\">\r\n                <path d=\"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"></path>\r\n                <polyline points=\"9 22 9 12 15 12 15 22\"></polyline>\r\n              </svg>\r\n              Dashboard <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" routerLink=\"\">\r\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"\r\n                stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-file\">\r\n                <path d=\"M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z\"></path>\r\n                <polyline points=\"13 2 13 9 20 9\"></polyline>\r\n              </svg>\r\n              My Quizzes\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" routerLink=\"\">\r\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"\r\n                stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-shopping-cart\">\r\n                <circle cx=\"9\" cy=\"21\" r=\"1\"></circle>\r\n                <circle cx=\"20\" cy=\"21\" r=\"1\"></circle>\r\n                <path d=\"M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6\"></path>\r\n              </svg>\r\n              Profile\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" routerLink=\"\">\r\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\"\r\n                stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"feather feather-users\">\r\n                <path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"></path>\r\n                <circle cx=\"9\" cy=\"7\" r=\"4\"></circle>\r\n                <path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"></path>\r\n                <path d=\"M16 3.13a4 4 0 0 1 0 7.75\"></path>\r\n              </svg>\r\n              View My High Scores\r\n            </a>\r\n          </li>\r\n\r\n        </ul>\r\n\r\n      </div>\r\n    </nav>\r\n\r\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\r\n      <div class=\"chartjs-size-monitor\" style=\"position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;\">\r\n        <div class=\"chartjs-size-monitor-expand\" style=\"position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;\">\r\n          <div style=\"position:absolute;width:1000000px;height:1000000px;left:0;top:0\"></div>\r\n        </div>\r\n        <div class=\"chartjs-size-monitor-shrink\" style=\"position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;\">\r\n          <div style=\"position:absolute;width:200%;height:200%;left:0; top:0\"></div>\r\n        </div>\r\n      </div>\r\n      <div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\">\r\n        <h1 class=\"h2\">Dashboard</h1>\r\n      </div>\r\n\r\n      <canvas class=\"my-4 w-100 chartjs-render-monitor\" id=\"myChart\" width=\"1037\" height=\"437\" style=\"display: block; height: 350px; width: 830px;\"></canvas>\r\n  </main>\r\n</div>\r\n</div>"
 
 /***/ }),
 
@@ -308,6 +312,58 @@ var DashboardComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/data.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/data.service.ts ***!
+  \*********************************/
+/*! exports provided: DataService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var DataService = /** @class */ (function () {
+    function DataService(http) {
+        this.http = http;
+    }
+    // use this service to connect to the API
+    // tv
+    DataService.prototype.playQuiz = function () {
+        console.log('the play button was clicked on the GamesComponentHtml');
+        console.log('playQuiz()');
+        // this should create 10 questions from TV category with multiple choice answers API
+        // return this.http.get('https://reqres.in/api/users');
+        return this.http.get('https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple');
+    };
+    //animals
+    DataService.prototype.playQuiz2 = function () {
+        console.log('playQuiz2()');
+        return this.http.get('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple');
+    };
+    //sports
+    DataService.prototype.playQuiz3 = function () {
+        console.log('playQuiz3()');
+        return this.http.get('https://opentdb.com/api.php?amount=10&category=21&difficulty=hard&type=multiple');
+    };
+    DataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], DataService);
+    return DataService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/games/games.component.css":
 /*!*******************************************!*\
   !*** ./src/app/games/games.component.css ***!
@@ -326,7 +382,7 @@ module.exports = "/* #games-jumbo {\r\n    background-color: hotpink;\r\n} */\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<!-- BootStrap here, for a list/section of cards -->\r\n\r\n<div id = \"games-jumbo\" class=\"jumbotron\">\r\n  <h1 class=\"display-4\">Takoot Games</h1>\r\n  <p class=\"lead\">Add a blurb about playing games! </p>\r\n  <hr class=\"my-4\">\r\n  <p>Below is a list of games....... blah blah blah.. </p>\r\n  <!-- <p class=\"lead\">\r\n    <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>\r\n  </p> -->\r\n\r\n\r\n<!-- add card groups -->\r\n\r\n<!-- on this view, when the user clicks a button on the card, it should take them to the quiz component-->\r\n\r\n<div class=\"card-deck\">\r\n  <div class=\"card text-white bg-dark mb-3\">\r\n    <!-- <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\"> -->\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">Card title</h5>\r\n      <p class=\"card-text\">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>\r\n      <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\r\n      <a routerLink=\"/quiz\" class=\"btn\" style=\"background-color:blueviolet; color:white\">Play Game</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"card text-white bg-dark mb-3\">\r\n    <!-- <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\"> -->\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">Card title</h5>\r\n      <p class=\"card-text\">This card has supporting text below as a natural lead-in to additional content.</p>\r\n      <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\r\n      <a routerLink=\"/quiz\" class=\"btn\" style=\"background-color:blueviolet; color:white\">Play Game</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"card text-white bg-dark mb-3\">\r\n    <!-- <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\"> -->\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">Card title</h5>\r\n      <p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>\r\n      <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\r\n      <a routerLink=\"/quiz\" class=\"btn\" style=\"background-color:blueviolet; color:white\">Play Game</a>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n</div> <!-- div for the jumbotron-->\r\n"
+module.exports = "\r\n<!-- BootStrap here, for a list/section of cards -->\r\n\r\n<div id = \"games-jumbo\" class=\"jumbotron\">\r\n  <h1 class=\"display-4\">Takoot Games</h1>\r\n  <p class=\"lead\">Add a blurb about playing games! </p>\r\n  <hr class=\"my-4\">\r\n  <p>Below is a list of games....... blah blah blah.. </p>\r\n  <!-- <p class=\"lead\">\r\n    <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>\r\n  </p> -->\r\n\r\n\r\n<!-- add card groups -->\r\n\r\n<!-- on this view, when the user clicks a button on the card, it should take them to the quiz component-->\r\n\r\n<div class=\"card-deck\">\r\n  <div class=\"card text-white bg-dark mb-3\">\r\n    <!-- <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\"> -->\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">TV Category</h5>\r\n      <p class=\"card-text\"> Television</p>\r\n      <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\r\n      <!-- here, you should have event binding for playQuiz -->\r\n      <a routerLink=\"/quiz\" class=\"btn\" style=\"background-color:blueviolet; color:white\">Play Game</a>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"card text-white bg-dark mb-3\">\r\n    <!-- <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\"> -->\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">Animals Category</h5>\r\n      <p class=\"card-text\">Animals Animals</p>\r\n      <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\r\n      <a routerLink=\"/quiz\" class=\"btn\" style=\"background-color:blueviolet; color:white\">Play Game</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"card text-white bg-dark mb-3\">\r\n    <!-- <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\"> -->\r\n    <div class=\"card-body\">\r\n      <h5 class=\"card-title\">Sports Category</h5>\r\n      <p class=\"card-text\"> Sports and More Sports</p>\r\n      <p class=\"card-text\"><small class=\"text-muted\">Last updated 3 mins ago</small></p>\r\n      <a routerLink=\"/quiz\" class=\"btn\" style=\"background-color:blueviolet; color:white\">Play Game</a>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n</div> <!-- div for the jumbotron-->\r\n"
 
 /***/ }),
 
@@ -345,6 +401,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var GamesComponent = /** @class */ (function () {
+    // this is a constructor in TS, that defines a private variable, data, of type DataService
     function GamesComponent() {
     }
     GamesComponent.prototype.ngOnInit = function () {
@@ -358,6 +415,62 @@ var GamesComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], GamesComponent);
     return GamesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/landing/landing.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/landing/landing.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xhbmRpbmcvbGFuZGluZy5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/landing/landing.component.html":
+/*!************************************************!*\
+  !*** ./src/app/landing/landing.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  landing works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/landing/landing.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/landing/landing.component.ts ***!
+  \**********************************************/
+/*! exports provided: LandingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingComponent", function() { return LandingComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LandingComponent = /** @class */ (function () {
+    function LandingComponent() {
+    }
+    LandingComponent.prototype.ngOnInit = function () {
+    };
+    LandingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-landing',
+            template: __webpack_require__(/*! ./landing.component.html */ "./src/app/landing/landing.component.html"),
+            styles: [__webpack_require__(/*! ./landing.component.css */ "./src/app/landing/landing.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LandingComponent);
+    return LandingComponent;
 }());
 
 
@@ -590,7 +703,7 @@ var QuestionsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3F1aXovcXVpei5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "ul {\r\n    list-style-type: none;\r\n    margin: 0;padding: 0;\r\n}\r\n\r\nli {\r\n    background: rgb(238, 238, 238);\r\n    padding: 2em;\r\n    border-radius: 4px;\r\n    margin-bottom: 7px;\r\n}\r\n\r\n\r\n\r\n       \r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcXVpei9xdWl6LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxxQkFBcUI7SUFDckIsU0FBUyxDQUFDLFVBQVU7QUFDeEI7O0FBRUE7SUFDSSw4QkFBOEI7SUFDOUIsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixrQkFBa0I7QUFDdEIiLCJmaWxlIjoic3JjL2FwcC9xdWl6L3F1aXouY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInVsIHtcclxuICAgIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcclxuICAgIG1hcmdpbjogMDtwYWRkaW5nOiAwO1xyXG59XHJcblxyXG5saSB7XHJcbiAgICBiYWNrZ3JvdW5kOiByZ2IoMjM4LCAyMzgsIDIzOCk7XHJcbiAgICBwYWRkaW5nOiAyZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiA3cHg7XHJcbn1cclxuXHJcblxyXG5cclxuICAgICAgIFxyXG4iXX0= */"
 
 /***/ }),
 
@@ -601,7 +714,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  Lol, so the quiz should go here. Ideally it will link to the actual quiz that the user clicks....\r\n</p>\r\n\r\n<!-- add a button, \"end quiz\" that will take the user back to the games-->\r\n"
+module.exports = "<!-- not working -->\r\n\r\n<h1>\r\n  Quiz\r\n</h1>\r\n\r\n<!-- here, add in your logic for displaying the quiz -->\r\n\r\n<!-- use interpolation for the h1 to put the quiz number in-->\r\n\r\n<!-- this is formatted to display quizzes  -->\r\n\r\n<ul *ngIf=\"quizzes\">\r\n  <li *ngFor=\"let quiz of quizzes.results\">\r\n    <p>{{ quiz.question }}}</p>\r\n    <ul>\r\n      <li> <input type=\"radio\" name =\"wrong\"> {{ quiz.correct_answer }} </li>\r\n      <li *ngFor=\"let answer of quiz.incorrect_answers\"> <input type=\"radio\" name = \"wrong\"> {{ answer }} </li>\r\n    </ul>\r\n  </li>\r\n</ul>"
 
 /***/ }),
 
@@ -617,12 +730,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuizComponent", function() { return QuizComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+
 
 
 var QuizComponent = /** @class */ (function () {
-    function QuizComponent() {
+    function QuizComponent(results) {
+        this.results = results;
     }
     QuizComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.results.playQuiz().subscribe(function (results) {
+            _this.quizzes = results;
+        });
     };
     QuizComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -630,7 +750,7 @@ var QuizComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./quiz.component.html */ "./src/app/quiz/quiz.component.html"),
             styles: [__webpack_require__(/*! ./quiz.component.css */ "./src/app/quiz/quiz.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"]])
     ], QuizComponent);
     return QuizComponent;
 }());
@@ -732,7 +852,7 @@ var TokenInterceptor = /** @class */ (function () {
     TokenInterceptor.prototype.intercept = function (request, next) {
         console.log('HTTP request intercepted!');
         // let token equal the jwt item from storage
-        var token = window.localStorage.getItem('rbs-jwt');
+        var token = window.localStorage.getItem('jwt');
         // if the user hits our endpoint and the token is true, attach the JWT
         if (request.url.indexOf(_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_URL) >= 0 && token) {
             console.log('Attaching JWT to Authorization header...');
