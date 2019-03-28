@@ -44,8 +44,8 @@ public scoreNum = 5;
   saveScore(){
     console.log(this.scoreNum);
     let quizId: number;
-    this.score = new Score(this.scoreNum, quizId)
-    this.results.saveScore(this.score)
+    this.score = new Score(this.scoreNum, quizId);
+    this.results.saveScore(this.score);
   }
   
   // trackByWrong(index, item) {

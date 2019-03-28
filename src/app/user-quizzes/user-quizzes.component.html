@@ -3,14 +3,31 @@
   User Created Quizzes
 
 </h1>
+<!-- have a ngSwitch to switch the views depending on what the user clicks. 
+  the user-quiz-list should be default-->
 
 
-<div>
+<div id="user-quiz-list">
   <ol *ngIf="userQuizzes">
+    <!-- for each quiz in all the quizzes -->
     <li *ngFor="let userQuiz of userQuizzes">
-      <p id="userQuestionId">{{ userQuiz.title }} created by {{ userQuiz.user.username }} </p>
+      <p id="userQuestionId">"{{ userQuiz.title }}" created by {{ userQuiz.user.username }}</p>
+
     </li>
   </ol>
-
-
 </div>
+
+<!-- this displays the questions-->
+<ul>
+  <li *ngFor="let userQuiz of userQuizzes">
+    <p *ngFor="let question of userQuiz.questions"> {{ question.question }}</p>
+    <p *ngFor="let question of userQuiz.questions"> {{ question.answers }} </p>
+    <p *ngFor="let answer of userQuiz.questions.answers"> {{ answer.answers }}</p>
+    <!-- *ngFor="let answers of " -->
+  
+    <!-- <p *ngFor="let answer of userQuiz.questions.answers">
+       {{ answer }}
+    </p> -->
+  
+  </li>
+</ul>
