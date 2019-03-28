@@ -25,8 +25,12 @@ export class UserService {
 
     this.http.patch(env.API_URL + 'users', updatedUserJson, {observe: 'response'})
     .pipe(map(resp => {
-      localStorage.getItem('jwt');
-      localStorage.getItem('user');
+      localStorage.setItem('jwt', resp.headers.get('Authorization'));
+      //localStorage.getItem('jwt');
+      //localStorage.getItem('user');
+      localStorage.setItem('user', JSON.stringify(resp.body));
+        //console.log('user');
+
     })).subscribe();
 
   }
