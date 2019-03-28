@@ -23,7 +23,7 @@ export class UserService {
     let updatedUserJson = JSON.stringify(updatedUser);
     console.log(updatedUserJson);
 
-    this.http.patch(env.API_URL + 'users', updatedUserJson, {observe: 'response'})
+    this.http.put(env.API_URL + 'users', updatedUserJson, {observe: 'response'})
     .pipe(map(resp => {
       localStorage.setItem('jwt', resp.headers.get('Authorization'));
       //localStorage.getItem('jwt');

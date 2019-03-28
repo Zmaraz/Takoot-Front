@@ -45,6 +45,8 @@ export class UpdateProfileComponent implements OnInit {
 
     this.userService.update(this.user);
 
+    this.router.navigate(['/dashboard']);
+
     console.log(this.user);
 
   }
