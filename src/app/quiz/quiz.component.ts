@@ -60,6 +60,7 @@ public scoreNum = 5;
       console.log("x value in quizcomponent.ts : " + x);
       this.quizzes = results;
       console.log(results); 
+      //console.log(results[1].questionId); 
     });
 
     // this.otherResults.getQuizzes().subscribe(otherResults => {
