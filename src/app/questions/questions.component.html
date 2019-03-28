@@ -42,12 +42,12 @@
   
   <!-- DIFFICULTY NEEDS TO GO HERE!!!!!! -->
   <div class="form-group">
-    <label for="category">Difficulty</label>
-    <select id="category" name="category" class="custom-select">
+    <label for="difficulty">Difficulty</label>
+    <select id="difficulty" name="difficulty" class="custom-select">
       <option selected>Specify a Difficulty</option>
-      <option class="category" id="easy" value="1">Easy</option>
-      <option class="category" id="medium" value="2">Medium</option>
-      <option class="category" id="hard" value="3">Hard</option>
+      <option class="difficulty" id="easy" value="1">Easy</option>
+      <option class="difficulty" id="medium" value="2">Medium</option>
+      <option class="difficulty" id="hard" value="3">Hard</option>
     </select>
   </div>
   <br>
@@ -356,5 +356,5 @@
   <br>
   <br>
 
-  <button type="submit" class="btn btn-primary">Create a Quiz!</button>
+  <button (click)="createQuiz()" type="submit" class="btn btn-primary">Create a Quiz!</button>
 </form>
