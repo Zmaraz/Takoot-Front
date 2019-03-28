@@ -5,9 +5,10 @@
   <div>
 
 
+    <!-- this is for quizzes that already exist-->
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
-        <p id="questionId">{{ quiz.question |  questionPipe }}</p>
+        <p id="questionId">{{ quiz.question }}</p>
         
         <ul>
           <!-- <li id="correct"> <input (click)="correctAnswer()" type="input" name="wrong" value="true" > {{ quiz.correct_answer }} </li> -->
@@ -23,6 +24,13 @@
     </ul> 
 
   </div> 
+
+
+  <!-- this is where you will store the user created quizzes-->
+  <div id = "userContainer">
+
+  </div>
+
 
     <!-- Button trigger modal -->
 
