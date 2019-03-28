@@ -18,6 +18,11 @@ export class UserService {
 
     console.log("inside of update service yee");
 
+    let userJson = JSON.stringify(user);
+    console.log(userJson);
+
+    
+
   }
 
 
