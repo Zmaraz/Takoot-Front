@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-<<<<<<< HEAD
 import { GamesService } from '../games.service';
-=======
 import { Score } from '../models/score';
->>>>>>> 5f31a287ea5d32ee91caa5e9e2a878044dfe4d1c
 
 @Component({
   selector: 'quiz',
@@ -18,11 +15,8 @@ export class QuizComponent implements OnInit {
 public scoreNum = 5;
 
   quizzes: Object;
-<<<<<<< HEAD
   userQuizzes: Object;
-=======
   score: Score;
->>>>>>> 5f31a287ea5d32ee91caa5e9e2a878044dfe4d1c
 
   constructor(private results: DataService, private otherResults: GamesService) {
     //let doc = document.getElementById("viewScoreBtn").addEventListener('click', this.getScore);
@@ -50,8 +44,8 @@ public scoreNum = 5;
   saveScore(){
     console.log(this.scoreNum);
     let quizId: number;
-    this.score = new Score(this.scoreNum, quizId)
-    this.results.saveScore(this.score)
+    this.score = new Score(this.scoreNum, quizId);
+    this.results.saveScore(this.score);
   }
   
   // trackByWrong(index, item) {
