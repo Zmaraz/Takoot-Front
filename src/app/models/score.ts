@@ -1,9 +1,11 @@
 export class Score {
     score: number;
-    quizId: number;
+    quizTitle: string;
+    username: string;
 
-    constructor(score: number, quizId: number){
+    constructor(score: number, quizTitle: string, username: string){
         this.score = score;
-        this.quizId = quizId;    
+        this.quizTitle = quizTitle;
+        this.username = username;  
     }
 }
