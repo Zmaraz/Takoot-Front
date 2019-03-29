@@ -37,7 +37,6 @@ export class QuestionsComponent implements OnInit {
   // creates a Quiz
   createQuiz() {
 
-    // this part of the function, sends the Quiz
     let title = (<HTMLInputElement>document.getElementById('quizTitle')).value;
     let dateCreated = String(new Date());
     let dateLastUpdated = dateCreated;

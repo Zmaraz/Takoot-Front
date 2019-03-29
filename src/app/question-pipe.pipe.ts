@@ -12,7 +12,7 @@ export class QuestionPipePipe implements PipeTransform {
       console.log("value is null"); 
       return null;
     }
-
+    
     
 
     // let i = 0;
@@ -27,9 +27,23 @@ export class QuestionPipePipe implements PipeTransform {
     console.log(valueString);
     //let i = 0;
       if (valueString.includes('&quot;')) {
-        this.removeQuotes2(valueString);
-        return valueString;
+        //console.log("in if statement" + valueString);
+        //valueString.replace(/'&quot;'/g, '"');
+        document.getElementById("questionId").innerHTML = valueString.replace(/'&quot;'/g, '"');;
+        console.log(valueString);
+        //this.removeQuotes2(valueString);
+        //return valueString;
       }
+
+      if (valueString.includes('&#039;')) {
+        //console.log("in if statement" + valueString);
+        valueString.replace(/"&#039;"/g, "'");
+        document.getElementById("questionId").innerHTML = valueString.replace('&#039;', "'");
+        console.log(valueString);
+        //this.removeQuotes2(valueString);
+        //return valueString;
+      }
+
 
     // for(let i = 0; i < words.length; i++) {
     //   let word = words[i];
@@ -48,7 +62,7 @@ export class QuestionPipePipe implements PipeTransform {
     //   } 
     // }
 
-    
+    return valueString;
     //return words.join(' ');
     
 
@@ -59,15 +73,21 @@ export class QuestionPipePipe implements PipeTransform {
     //console.log("in if statement if the value contains a &quot; :  ");
         let quoteIndex = valueString.indexOf("&quot;");
         valueString.replace('&quot;', '"');
-        console.log("inside removeQuotes2() after changed quotes :  " + valueString)
-        document.getElementById("questionId").innerHTML = valueString;
-        
+        // valueString.replace('&quot;', '"');
+        // valueString.replace('&quot;', '"');
+        // valueString.replace('&quot;', '"');
+        // valueString.replace('&quot;', '"');
+        // valueString.replace('&quot;', '"');
+        console.log("inside removeQuotes2() after changed quotes :  " + valueString.replace('&quot;', '"'));
+        //document.getElementById("questionId").innerHTML = valueString;
+        let valueS = (<HTMLInputElement>document.getElementById('questionId')).value;
         //console.log("index of the &quot; is :   " + quoteIndex);
         //document.getElementById("questionId").innerHTML = value.replace('&quot;', '"');
         //console.log(value.replace('&quot;', '"'));
 
+
         //console.log(value.replace(value.substring(quoteIndex, quoteIndex + 6), '"'));
-        console.log(valueString);
+        console.log("this is valueS :  " + valueS);
         return valueString;
         //return valueString.replace('&quot;', '"');
         //return document.getElementById("questionId").innerHTML = valueString.replace('&quot;', '"');
