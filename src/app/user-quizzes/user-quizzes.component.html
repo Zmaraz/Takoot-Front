@@ -19,15 +19,20 @@
 
 <!-- this displays the questions-->
 <ul>
+  <!-- for each quiz in all the quizzes-->
   <li *ngFor="let userQuiz of userQuizzes">
+
+    <!-- for each question in all the questions of each quiz-->
     <p *ngFor="let question of userQuiz.questions"> {{ question.question }}</p>
-    <p *ngFor="let question of userQuiz.questions"> {{ question.answers }} </p>
-    <p *ngFor="let answer of userQuiz.questions.answers"> {{ answer.answers }}</p>
-    <!-- *ngFor="let answers of " -->
-  
-    <!-- <p *ngFor="let answer of userQuiz.questions.answers">
-       {{ answer }}
-    </p> -->
+
+    <!-- for each answer in each question in all the questions in each quiz-->
+    <!-- this gives me an [object Object] -->
+    <p *ngFor="let answers of userQuiz.questions"> {{ answers.answers }} </p>
+
+    <!-- <p *ngFor="let answer of answers"> {{ answer }}</p> -->
+
+    <!-- <p *ngFor="let answer of userQuiz.questions.answers"> {{ answer }} </p> -->
+
   
   </li>
 </ul>

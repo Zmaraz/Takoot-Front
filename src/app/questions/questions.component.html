@@ -3,10 +3,11 @@
 <ul *ngIf="question">
   <li *ngFor="let quest of question.results">
     <p>{{ quest.question }}</p>
-
     <ul>
-      <li id="correct"> <input type="radio" name="wrong" value="true"> {{ quest.correct_answer }} </li>
-      <li *ngFor="let answer of quest.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }}
+      <li id="correct"> <input type="radio" name="wrong" value="true"> 
+        {{ quest.correct_answer }} </li>
+      <li *ngFor="let answer of quest.incorrect_answers"> 
+        <input type="radio" name="wrong" value="false"> {{ answer }}
       </li>
     </ul>
   </li>
