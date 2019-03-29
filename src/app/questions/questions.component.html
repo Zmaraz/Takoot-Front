@@ -1,4 +1,5 @@
-<h3>Create A Quiz</h3>
+
+<h3 class = "text-center">Create A Quiz</h3>
 <br />
 <ul *ngIf="question">
   <li *ngFor="let quest of question.results">
@@ -54,6 +55,7 @@
 
   <button (click)="createQuiz()" type="submit" class="btn btn-primary">Create a Quiz!</button>
 
+  <hr>
   <br>
   <br>
   <!-- this will generate a random question -->
@@ -61,6 +63,7 @@
   <br>
   <br>
 
+  <hr>
   <!-- 
     here, we will add dynamic form fields for adding questions and answers
   -->
@@ -69,6 +72,7 @@
     <label for="quest1">Question 1</label>
     <input type="text" class="form-control" id="quest1" placeholder="Enter the first question">
   </div>
+  <br>
   <button (click)="createQuestion1()" type="submit" class="btn btn-primary">Create Question</button>
   <br>
 
@@ -81,6 +85,7 @@
     <span class="input-group-addon">Correct Answer</span> <br>
     <input id="correct-quest-1" type="text" class="form-control" name="correct" placeholder="Correct Answer">
   </div>
+  <br>
   <button (click)="createAnswer1()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -88,6 +93,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect1-quest-1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer2()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -95,6 +101,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect2-quest-1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer3()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -102,9 +109,10 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect3-quest-1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer4()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
-
+<hr>
   <br>
   <br>
 
@@ -112,6 +120,7 @@
     <label for="quest2">Question 2</label>
     <input type="text" class="form-control" id="quest2" placeholder="Enter the next question">
   </div>
+  <br>
   <button (click)="createQuestion2()" type="submit" class="btn btn-primary">Create Question</button>
   <br>
 
@@ -119,6 +128,7 @@
     <span class="input-group-addon">Correct Answer</span> <br>
     <input id="correct-quest-2" type="text" class="form-control" name="correct" placeholder="Correct Answer">
   </div>
+  <br>
   <button (click)="createAnswer5()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -126,6 +136,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect1-quest-2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer6()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -133,6 +144,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect2-quest-2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer7()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -140,10 +152,13 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect3-quest-2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer8()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
-
+<br>
+<hr>
+<br>
   <div class="form-group">
     <label for="quest3">Question 3</label>
     <input type="text" class="form-control" id="quest3" placeholder="Enter the next question">
@@ -156,6 +171,7 @@
     <span class="input-group-addon">Correct Answer</span> <br>
     <input id="correct-quest-3" type="text" class="form-control" name="correct" placeholder="Correct Answer">
   </div>
+  <br>
   <button (click)="createAnswer9()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
   
@@ -164,6 +180,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect1-quest-3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer10()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -171,6 +188,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect2-quest-3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer11()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -178,11 +196,13 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect3-quest-3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer12()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
   <br>
   <br>
+  <hr>
 
   <div class="form-group">
     <label for="quest4">Question 4</label>
@@ -197,6 +217,7 @@
     <span class="input-group-addon">Correct Answer</span> <br>
     <input id="correct-quest-4" type="text" class="form-control" name="correct" placeholder="Correct Answer">
   </div>
+  <br>
   <button (click)="createAnswer13()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -205,6 +226,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect1-quest-4" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer14()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -213,6 +235,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect2-quest-4" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer15()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
@@ -221,10 +244,12 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect3-quest-4" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+  <br>
   <button (click)="createAnswer16()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
   <br>
+  <hr>
   <br>
 
   <div class="form-group">
@@ -246,6 +271,7 @@
     <span class="input-group-addon">Incorrect Answer</span>
     <input id="incorrect1-quest-5" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
   </div>
+
   <button (click)="createAnswer18()" type="submit" class="btn btn-primary">Create Answer</button>
   <br>
 
