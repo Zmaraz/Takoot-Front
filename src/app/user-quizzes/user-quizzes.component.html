@@ -21,8 +21,10 @@
 <ul>
   <li *ngFor="let userQuiz of userQuizzes">
     <p *ngFor="let question of userQuiz.questions"> {{ question.question }}</p>
-    <p *ngFor="let question of userQuiz.questions"> {{ question.answers }} </p>
-    <p *ngFor="let answer of userQuiz.questions.answers"> {{ answer.answers }}</p>
+    
+    <p *ngFor="let question of userQuiz.questions"> {{ question.questions }} </p>
+    <p *ngFor="let answers of userQuiz.questions"> {{ answers.answers | quizQuestions }}</p>
+    
     <!-- *ngFor="let answers of " -->
   
     <!-- <p *ngFor="let answer of userQuiz.questions.answers">

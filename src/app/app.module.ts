@@ -21,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 import { QuestionPipePipe } from './question-pipe.pipe';
+import { QuizQuestionsPipe } from './quiz-questions.pipe';
 
 import { AuthService } from './auth.service';
 import { DataService } from './data.service';
@@ -28,6 +29,8 @@ import { QuizScoreService } from './quiz-score.service';
 import { UserService } from './user.service';
 
 import { TokenInterceptor } from './token.interceptor';
+import { GamesService } from './games.service';
+
 
 
 
@@ -64,7 +67,8 @@ const ROUTES = [
     UserQuizzesComponent,
     QuestionPipePipe,
     ProfileComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    QuizQuestionsPipe
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,8 @@ const ROUTES = [
     }, 
     DataService,
     QuizScoreService,
-    UserService
+    UserService,
+    GamesService
   ],
   bootstrap: [AppComponent]
 })
