@@ -1,22 +1,22 @@
-<h1>
+<h1 class = "text-center">
   Quiz
 </h1>
 
-  <div>
+  <div class = "text-center">
 
 
     <!-- this is for quizzes that already exist-->
     <ul *ngIf="quizzes">
       <li  *ngFor="let quiz of quizzes.results">
-        <p id="questionId">{{ quiz.question }}</p>
+        <h4 id="questionId">{{ quiz.question | questionPipe}}</h4>
         
         <ul>
           <!-- <li id="correct"> <input (click)="correctAnswer()" type="input" name="wrong" value="true" > {{ quiz.correct_answer }} </li> -->
           <!-- <li id="correct"> <button (click)="correctAnswer()" name="wrong" value="This one!"> {{ quiz.correct_answer }} </li> -->
-          <button id="correctBtn"  (click)="correctAnswer()" name="wrong"  > {{ quiz.correct_answer }} </button>
+          <button id="correctBtn" class = "btn btn-info" (click)="correctAnswer()" name="wrong"  > {{ quiz.correct_answer }} </button>
           
           <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <button (click)="wrongAnswer()" name="wrong" value="This one!"> {{ answer }} </li> -->
-          <button id="wrongBtn" *ngFor="let answer of quiz.incorrect_answers" (click)="wrongAnswer()" name="wrong" value="This one!"  >  {{ answer }} </button>
+          <button id="wrongBtn" class="btn btn-info" *ngFor="let answer of quiz.incorrect_answers" (click)="wrongAnswer()" name="wrong" value="This one!"  >  {{ answer }} </button>
           <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li> -->
           
         </ul>
@@ -25,25 +25,13 @@
 
   </div> 
 
-
-  <!-- this is where you will store the user created quizzes-->
-  <!-- <div id = "userContainer">
-    <ul *ngIf="userQuizzes">
-      <li *ngFor="let userQuiz of userQuizzes.otherResults">
-        <p id="userQuestionId">{{ userQuiz.question }}</p>
-      </li>
-      
-    </ul>
-
-     <tr *ngFor="let user of users">
-    <td>{{user.first_name}}</td>
-    <td>{{user.last_name}}</td>
-</tr>-->
-
-  <!-- </div>  -->
+<br>
+<hr>
+<br>
 
 
     <!-- Button trigger modal -->
+    <div class ="text-center">
 
     <button (click)="getScore()" id="viewScoreBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       View Score!
@@ -62,14 +50,13 @@
               <p id="score">  -Quiz Completed- </p>
               You got : {{scoreNum}} correct
             </div>
-            <div class="modal-footer">
-              <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-footer text-center" >
+              <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Back To Games</button>
               <!-- Save score should be functional -->
-              <button (click)="saveScore()" routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Save Scores</button>
+              <button routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Back To Dashboard</button>
             </div>
           </div>
         </div>
       </div>
-
+    </div>
    
-<!-- </div> -->

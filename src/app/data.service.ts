@@ -8,6 +8,7 @@ import { Score } from './models/score';
   providedIn: 'root'
 })
 export class DataService {
+  score: Score;
 
   constructor(private http: HttpClient) { }
 

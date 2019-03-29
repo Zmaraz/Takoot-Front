@@ -41,12 +41,12 @@ public scoreNum = 5;
   
   }
 
-  saveScore(){
-    console.log(this.scoreNum);
-    let quizId: number;
-    this.score = new Score(this.scoreNum, quizId)
-    this.results.saveScore(this.score)
-  }
+  // saveScore(){
+  //   console.log(this.scoreNum);
+  //   let quizId: number = 100;
+  //   this.score = new Score(this.scoreNum, quizId)
+  //   this.results.saveScore(this.score)
+  // }
   
   // trackByWrong(index, item) {
   // let doc = document.getElementById("questionId");
@@ -60,6 +60,7 @@ public scoreNum = 5;
       console.log("x value in quizcomponent.ts : " + x);
       this.quizzes = results;
       console.log(results); 
+      //console.log(results[1].questionId); 
     });
 
     // this.otherResults.getQuizzes().subscribe(otherResults => {

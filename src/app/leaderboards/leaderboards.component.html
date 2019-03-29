@@ -1,5 +1,11 @@
-<h1> 
-
-  BLEDEDEDAT! *IN PROGRESS*
-
-</h1>>
+<ul class="high-scores" style = "list-style-type: none">
+  <li *ngFor="let item of results; let i = index" >
+    <div *ngIf="results[i].quiz.title">
+    <h2>Quiz: {{results[i].quiz.title}}</h2>
+    <br/>
+    <h5>Username: {{results[i].user.username}}</h5>
+    <br/>
+    <h5>Score: {{results[i].score}}</h5>
+    </div>
+  </li>
+</ul>
