@@ -1,0 +1,62 @@
+<h1 class = "text-center">
+  Quiz
+</h1>
+
+  <div class = "text-center">
+
+
+    <!-- this is for quizzes that already exist-->
+    <ul *ngIf="quizzes">
+      <li  *ngFor="let quiz of quizzes.results">
+        <h4 id="questionId">{{ quiz.question | questionPipe}}</h4>
+        
+        <ul>
+          <!-- <li id="correct"> <input (click)="correctAnswer()" type="input" name="wrong" value="true" > {{ quiz.correct_answer }} </li> -->
+          <!-- <li id="correct"> <button (click)="correctAnswer()" name="wrong" value="This one!"> {{ quiz.correct_answer }} </li> -->
+          <button id="correctBtn" class = "btn btn-info" (click)="correctAnswer()" name="wrong"  > {{ quiz.correct_answer }} </button>
+          
+          <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <button (click)="wrongAnswer()" name="wrong" value="This one!"> {{ answer }} </li> -->
+          <button id="wrongBtn" class="btn btn-info" *ngFor="let answer of quiz.incorrect_answers" (click)="wrongAnswer()" name="wrong" value="This one!"  >  {{ answer }} </button>
+          <!-- <li *ngFor="let answer of quiz.incorrect_answers"> <input type="radio" name="wrong" value="false"> {{ answer }} </li> -->
+          
+        </ul>
+      </li>
+    </ul> 
+
+  </div> 
+
+<br>
+<hr>
+<br>
+
+
+    <!-- Button trigger modal -->
+    <div class ="text-center">
+
+    <button (click)="getScore()" id="viewScoreBtn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      View Score!
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">User Scores</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="userScore" class="modal-body">
+              <p id="score">  -Quiz Completed- </p>
+              You got : {{scoreNum}} correct
+            </div>
+            <div class="modal-footer text-center" >
+              <button routerLink="/games" type="button" class="btn btn-secondary" data-dismiss="modal">Back To Games</button>
+              <!-- Save score should be functional -->
+              <button routerLink="/dashboard" type="button" class="btn btn-primary" data-dismiss="modal">Back To Dashboard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   

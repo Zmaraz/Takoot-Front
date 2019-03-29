@@ -1,0 +1,54 @@
+
+<!-- BootStrap here, for a list/section of cards -->
+
+<div id = "games-jumbo" class="jumbotron">
+  <h1 class="display-4">Takoot Games</h1>
+  <p class="lead">Play some of the most fun and exciting trivia games in the world! </p>
+  <hr class="my-4">
+  <p>Below are games provided by Takoot. Choose from a variety of different categories. </p>
+  <!-- <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p> -->
+
+
+<!-- add card groups -->
+
+<!-- on this view, when the user clicks a button on the card, it should take them to the quiz component-->
+
+<div class="card-deck">
+  <div class="text-center card text-white border-dark bg-dark mb-3">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body border-dark">
+      <h5 class="card-title">Difficulty: Easy</h5>
+      <p class="card-text"> Random Category</p>
+      <!-- here, you should have event binding for playQuiz -->
+      <a routerLink="/quiz" class="btn" style="background-color:darkviolet; color:white">Play Game</a>
+    </div>
+  </div>
+
+  <div class="text-center card text-white border-dark bg-dark mb-3">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body border-dark">
+      <h5 class="card-title">Difficult: Medium</h5>
+      <p class="card-text">Random Category</p>
+      <a routerLink="/quiz" class="btn" style="background-color:darkviolet; color:white">Play Game</a>
+    </div>
+  </div>
+
+  <div class="text-center card text-white border-dark bg-dark mb-3">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body border-dark">
+      <h5 class="card-title">Difficulty: Hard</h5>
+      <p class="card-text"> Random Category </p>
+      <a routerLink="/quiz" class="btn" style="background-color:darkviolet; color:white">Play Game</a>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<br>
+<div class="text-center">
+    <h5><a click="getAllQuizzes()"routerLink="/user-quizzes" id="">*Click here to view games made by other Takooters*</a></h5>
+</div>
+</div> <!-- div for the jumbotron-->

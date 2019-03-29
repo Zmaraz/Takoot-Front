@@ -1,0 +1,296 @@
+
+<h3 class = "text-center">Create A Quiz</h3>
+<br />
+<ul *ngIf="question">
+  <li *ngFor="let quest of question.results">
+    <p>{{ quest.question }}</p>
+    <ul>
+      <li id="correct"> <input type="radio" name="wrong" value="true"> 
+        {{ quest.correct_answer }} </li>
+      <li *ngFor="let answer of quest.incorrect_answers"> 
+        <input type="radio" name="wrong" value="false"> {{ answer }}
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- 
+  have an empty question generator that asks for:
+  1. title of quiz
+  2. 10 blank questions with 4 answer choices
+  3. 
+-->
+<form>
+  <div class="form-group">
+    <label for="quizTitle">Quiz Title</label>
+    <input type="text" class="form-control" id="quizTitle" aria-describedby="quizTitleHelp" placeholder="Enter a title for your quiz">
+  </div>
+  <br>
+
+
+  <!-- category drop down should be here -->
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select id="category" name="category" class="custom-select">
+      <option selected>Specify a Category</option>
+      <option class="category" id="movies" value="1">Movies</option>
+      <option class="category" id="television" value="2">Television</option>
+      <option class="category" id="animals" value="3">Animals</option>
+      <option class="category" id="olympics" value="4">Sports</option>
+    </select>
+  </div>
+  <br>
+  
+  <!-- DIFFICULTY NEEDS TO GO HERE!!!!!! -->
+  <div class="form-group">
+    <label for="difficulty">Difficulty</label>
+    <select id="difficulty" name="difficulty" class="custom-select">
+      <option selected>Specify a Difficulty</option>
+      <option class="difficulty" id="easy" value="1">Easy</option>
+      <option class="difficulty" id="medium" value="2">Medium</option>
+      <option class="difficulty" id="hard" value="3">Hard</option>
+    </select>
+  </div>
+  <br>
+
+  <button (click)="createQuiz()" type="submit" class="btn btn-primary">Create a Quiz!</button>
+
+  <hr>
+  <br>
+  <br>
+  <!-- this will generate a random question -->
+  <input (click)="getQuestion()" type="submit" value="Generate A Question" class="btn btn-primary" />
+  <br>
+  <br>
+
+  <hr>
+  <!-- 
+    here, we will add dynamic form fields for adding questions and answers
+  -->
+
+  <div class="form-group">
+    <label for="quest1">Question 1</label>
+    <input type="text" class="form-control" id="quest1" placeholder="Enter the first question">
+  </div>
+  <br>
+  <button (click)="createQuestion1()" type="submit" class="btn btn-primary">Create Question</button>
+  <br>
+
+  <!-- <div class="input-group">
+      <span class="input-group-addon">Text</span>
+      <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+    </div> -->
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct-quest-1" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer1()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1-quest-1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer2()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2-quest-1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer3()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3-quest-1" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer4()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+<hr>
+  <br>
+  <br>
+
+  <div class="form-group">
+    <label for="quest2">Question 2</label>
+    <input type="text" class="form-control" id="quest2" placeholder="Enter the next question">
+  </div>
+  <br>
+  <button (click)="createQuestion2()" type="submit" class="btn btn-primary">Create Question</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct-quest-2" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer5()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1-quest-2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer6()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2-quest-2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer7()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3-quest-2" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer8()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+<br>
+<hr>
+<br>
+  <div class="form-group">
+    <label for="quest3">Question 3</label>
+    <input type="text" class="form-control" id="quest3" placeholder="Enter the next question">
+  </div>
+  <br>
+  <button (click)="createQuestion3()" type="submit" class="btn btn-primary">Create Question</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct-quest-3" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer9()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+  
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1-quest-3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer10()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2-quest-3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer11()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3-quest-3" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer12()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <br>
+  <br>
+  <hr>
+
+  <div class="form-group">
+    <label for="quest4">Question 4</label>
+    <input type="text" class="form-control" id="quest4" placeholder="Enter the next question">
+  </div>
+  <br>
+  <button (click)="createQuestion4()" type="submit" class="btn btn-primary">Create Question</button>
+  <br>
+
+  <!-- 13-->
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct-quest-4" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer13()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <!--14-->
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1-quest-4" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer14()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <!--15-->
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2-quest-4" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer15()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <!--16-->
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3-quest-4" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <br>
+  <button (click)="createAnswer16()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <br>
+  <hr>
+  <br>
+
+  <div class="form-group">
+    <label for="quest5">Question 5</label>
+    <input type="text" class="form-control" id="quest5" placeholder="Enter the next question">
+  </div>
+  <br>
+  <button (click)="createQuestion5()" type="submit" class="btn btn-primary">Create Question</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Correct Answer</span> <br>
+    <input id="correct-quest-5" type="text" class="form-control" name="correct" placeholder="Correct Answer">
+  </div>
+  <button (click)="createAnswer17()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect1-quest-5" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+
+  <button (click)="createAnswer18()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect2-quest-5" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <button (click)="createAnswer19()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon">Incorrect Answer</span>
+    <input id="incorrect3-quest-5" type="text" class="form-control" name="incorrect1" placeholder="Incorrect Answer">
+  </div>
+  <button (click)="createAnswer20()" type="submit" class="btn btn-primary">Create Answer</button>
+  <br>
+
+  <br>
+  <br>
+
+
+</form>

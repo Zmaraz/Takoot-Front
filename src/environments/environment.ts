@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL: 'http://localhost:8080/Takoot-Back/'
+  //API_URL: 'http://takoot-env.kfpmdjpm3m.us-east-1.elasticbeanstalk.com/'
 };
 
 /*
